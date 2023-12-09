@@ -107,13 +107,24 @@ main {
   padding-top: 1.5rem;
 }
 
-body > footer {
+.navigation-section {
   margin-top: 4rem;
   padding: 2rem 1rem 1.5rem 1rem;
   color: var(--text-light);
   font-size: 0.9rem;
   text-align: center;
   border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: var(--preformatted);
+    
+}
+.navigation-section > button {
+    background-color: var(--marked);
+}
+.navigation-section > p > a {
+    color: var(--marked);
 }
 
 /* Format headers */
@@ -179,9 +190,13 @@ h3 {
 }
 
 /* Format links & buttons */
-a,
+a {
+  color: var(--preformatted);
+  text-decoration: none;
+}
 a:visited {
-  color: var(--accent);
+  /* color: var(--accent-bg); */
+  text-decoration: none;
 }
 
 a:hover {
