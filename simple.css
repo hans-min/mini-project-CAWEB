@@ -80,7 +80,7 @@ body > * {
 }
 
 /* Make the header bg full width, but the content inline with body */
-body > header {
+body > header, main-header {
   background-color: var(--accent-bg);
   border-bottom: 1px solid var(--border);
   text-align: center;
@@ -88,16 +88,16 @@ body > header {
   grid-column: 1 / -1;
 }
 
-body > header > *:only-child {
+header > *:only-child {
   margin-block-start: 2rem;
 }
 
-body > header h1 {
+header h1 {
   max-width: 1200px;
   margin: 1rem auto;
 }
 
-body > header p {
+header p {
   max-width: 40rem;
   margin: 1rem auto;
 }
@@ -107,8 +107,8 @@ main {
   padding-top: 1.5rem;
 }
 
-body > footer {
-  margin-top: 4rem;
+body > footer, main-footer {
+  margin-top: 1rem;
   padding: 2rem 1rem 1.5rem 1rem;
   color: var(--text-light);
   font-size: 0.9rem;
