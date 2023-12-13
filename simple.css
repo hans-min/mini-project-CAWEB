@@ -198,13 +198,18 @@ h3 {
 }
 
 /* Format links & buttons */
-a {
+/* a {
   color: var(--preformatted);
   text-decoration: none;
 }
 a:visited {
-  /* color: var(--accent-bg); */
+  color: var(--accent-bg); 
   text-decoration: none;
+} */
+
+a,
+a:visited {
+  color: var(--accent);
 }
 
 a:hover {
