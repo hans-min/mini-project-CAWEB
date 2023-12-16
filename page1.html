@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WaveFunctionCollapse Tutorial - Introduction</title>
-        <link rel="stylesheet" href="simple.css">
-        <script src="header_footer_template.js"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous JavaScript and Fetch API Tutorial - Introduction</title>
+    <link rel="stylesheet" href="simple.css">
+    <script src="header_footer_template.js"></script>
 
-    <body>
-        <main-header></main-header>
+    <style>
 
-        <div id="overview">
-            <h2>Overview</h2>
-            <p>Discover the power of WaveFunctionCollapse and how it can revolutionize your projects.</p>
+    </style>
+</head>
 
-        </div>
+<body>
+    <main-header></main-header>
 
-        <div id="why-used">
-            <h2>Why WaveFunctionCollapse?</h2>
-            <p>Explore the reasons behind the popularity and usefulness of WaveFunctionCollapse in various applications.
-            </p>
-
-        </div>
-
-        <div id="key-features">
-            <h2>Key Features</h2>
+        <div id="async-js-intro">
+            <h2>Page 1: Introduction to Asynchronous JavaScript</h2>
+            <p>Purpose: Explain the concept of asynchronous operations in JavaScript.</p>
             <ul>
-                <li>Feature 1</li>
-                <li>Feature 2</li>
+                <li>Definition and importance of asynchronous programming.</li>
+                <li>Differences between synchronous and asynchronous code.</li>
+                <li>Basic examples of asynchronous patterns in JavaScript (like setTimeout).</li>
             </ul>
         </div>
 
-        <div id="historical-context">
-            <h2>Historical Context</h2>
-            <p>Learn about the origins of WaveFunctionCollapse and the problems it aims to solve.</p>
+        <div id="promises-async-await">
+            <h2>Page 2: Understanding Promises and Async/Await</h2>
+            <p>Purpose: Deep dive into Promises and the Async/Await syntax.</p>
+            <ul>
+                <li>Explanation of Promises and their states.</li>
+                <li>How to create and use Promises.</li>
+                <li>Introduction to Async/Await for handling asynchronous code.</li>
+            </ul>
+        </div>
+
+        <div id="fetch-api-intro">
+            <h2>Page 3: Introduction to the Fetch API</h2>
+            <p>Purpose: Introduce the Fetch API for making network requests.</p>
+            <ul>
+                <li>Basic concepts of the Fetch API.</li>
+                <li>How to make simple GET requests.</li>
+                <li>Handling responses and errors.</li>
+            </ul>
+            <textarea id="code-editor" placeholder="Write your JavaScript code here..."></textarea>
+        <button onclick="executeCode()">Run Code</button>
+        <iframe id="output" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+
+        <div id="advanced-fetch-api">
+            <h2>Page 4: Advanced Fetch API Usage</h2>
+            <p>Purpose: Explore more complex use cases of the Fetch API.</p>
+            <ul>
+                <li>Making POST, PUT, and DELETE requests.</li>
+                <li>Working with headers and sending data.</li>
+                <li>Practical examples like interacting with a third-party API.</li>
+            </ul>
         </div>
         <div>
             <p>
-                Continue to <a href="page2.html">Page 2: Environment Setup</a>
+                Continue to <a href="page2.html">Page 2: Understanding Promises and Async/Await</a>
             </p>
         </div>
 
         <main-footer></main-footer>
+        <script>
+            function executeCode() {
+                var code = document.getElementById('code-editor').value;
+                try {
+                    // Execute the JavaScript code
+                    eval(code);
+                } catch (e) {
+                    console.error("Error executing code: ", e);
+                    // Display error in the iframe
+                    document.getElementById('output').contentWindow.document.body.innerHTML = "<p>Error executing code: " + e + "</p>";
+                }
+            }
+        </script>
     </body>
 
 </html>

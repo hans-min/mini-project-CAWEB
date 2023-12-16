@@ -2,20 +2,20 @@ class Header extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <header>
-    <h1>Welcome to the WaveFunctionCollapse Tutorial</h1>
+    <h1>Welcome to the Asynchronous JavaScript and Fetch API Tutorial</h1>
     <nav>
         <ul>
             <li>
-                <a href="page1.html">Introduction</a>
+                <a href="page1.html">Introduction to Asynchronous JavaScript</a>
             </li>
             <li>
-                <a href="page2.html">Environment Setup</a>
+                <a href="page2.html">Understanding Promises and Async/Await</a>
             </li>
             <li>
-                <a href="page3.html">Functional Demo</a>
+                <a href="page3.html">Introduction to the Fetch API</a>
             </li>
             <li>
-                <a href="page4.html">Integration</a>
+                <a href="page4.html">Advanced Fetch API Usage</a>
             </li>
         </ul>
     </nav>
