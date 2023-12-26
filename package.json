@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "prettier": "^3.1.1"
+  },
+  "name": "vuejsmark",
+  "description": "### Mini project for the course JS part 2 ### We use Vue.js and [simple.css](https://simplecss.org/)",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddelpha/vueJSMark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ddelpha/vueJSMark/issues"
+  },
+  "homepage": "https://github.com/ddelpha/vueJSMark#readme"
+}

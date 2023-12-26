@@ -20,21 +20,20 @@ class Header extends HTMLElement {
         </ul>
     </nav>
 </header>
-        `
+        `;
   }
 }
 
 //Footer
 class Footer extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = 
-      `
+    this.innerHTML = `
       <footer>
         <p>Created by Minh and Douglas</p>
       </footer>
-      `
+      `;
   }
 }
 
-customElements.define('main-header', Header);
-customElements.define('main-footer', Footer);
+customElements.define("main-header", Header);
+customElements.define("main-footer", Footer);
