@@ -16,7 +16,7 @@
     <main-header></main-header>
 
     <div id="async-js-intro">
-      <h1>Understanding Asynchronous Operations in JavaScript</h1>
+      <h1>Introduction to Asynchronous JavaScript</h1>
       <p>
         Asynchronous programming is used for handling API requests, file reading, and other long processes. This page explains what
         they are, why they're important, and how they're different from synchronous code.
@@ -70,20 +70,7 @@
 
     <main-footer></main-footer>
     <script>
-      function executeCode() {
-        var code = document.getElementById("code-editor").value;
-        try {
-          // Execute the JavaScript code
-          eval(code);
-        } catch (e) {
-          console.error("Error executing code: ", e);
-          // Display error in the iframe
-          document.getElementById(
-            "output",
-          ).contentWindow.document.body.innerHTML =
-            "<p>Error executing code: " + e + "</p>";
-        }
-      }
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="app.js"></script>
