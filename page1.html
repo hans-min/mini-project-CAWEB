@@ -6,44 +6,45 @@
     <title>Asynchronous JavaScript and Fetch API Tutorial - Introduction</title>
     <link rel="stylesheet" href="simple.css" />
     <script src="header_footer_template.js"></script>
-
-    <style>
-      /* You can add your styles here */
-    </style>
   </head>
 
   <body>
     <main-header></main-header>
-
-    <div id="async-js-intro">
-      <h1>Introduction to Asynchronous JavaScript</h1>
-      <p>
-        Asynchronous programming is used for handling API requests, file reading, and other long processes. This page explains what
-        they are, why they're important, and how they're different from synchronous code.
-      </p>
-      <h2>What is Asynchronous Programming?</h2>
-      <p>
-        Asynchronous programming allows a program to start a long-running task, like fetching data from
-        a server while running other code at the same without it becoming blocked. This is important in JavaScript for making sure the code runs correctly and does create a race condition.
-      </p>
-      <h2>Synchronous vs. Asynchronous Code</h2>
-      <p>
-        In synchronous programming, code is run one after another,
-        meaning each task must finish before the next one starts. This can
-        lead to problems, especially when dealing with operations that
-        take a significant amount of time. Asynchronous programming overcomes
-        this by allowing tasks to be performed concurrently, improving
-        responsiveness and efficiency.
-      </p>
-      <h2>Asynchronous Patterns in JavaScript</h2>
-      <p>
-        JavaScript has many ways to handle asynchronous operations. One
-        of the simplest is the <code>setTimeout</code> function.
-      </p>
-      <h3>Example: Using <code>setTimeout</code></h3>
-      <pre>
+    <div id="app">
+      <div id="async-js-intro">
+        <h1>Introduction to Asynchronous JavaScript</h1>
+        <p>
+          Asynchronous programming is used for handling API requests, file
+          reading, and other long processes. This page explains what they are,
+          why they're important, and how they're different from synchronous
+          code.
+        </p>
+        <div
+          v-for="(accordion, index) in accordions"
+          :key="index"
+          style="
+            border: 1px solid var(--marked);
+            margin-top: 40px;
+            border-radius: var(--standard-border-radius);
+            padding: 10px;
+          "
+        >
+          <h3 @click="toggleAccordion(index)">
+            {{ accordion.title }}
+            <span class="arrow">▼</span>
+          </h3>
+          <p v-if="accordion.isOpen" v-html="accordion.content">
+            {{ accordion.content }}
+          </p>
+        </div>
+        <h3>Example: Using <code>setTimeout</code></h3>
+        <p>
+            Click F12 on your keyboard.
+            Go to the console tab.
+            Type in the following code and press enter.
+          </p>
+        <pre>
             <code>
-        // Example of setTimeout
         console.log('Start');
         setTimeout(() => {
             console.log('This is an asynchronous message');
@@ -51,27 +52,40 @@
         console.log('End');
             </code>
         </pre>
-      <p>
-        In this example, <code>setTimeout</code> is used to delay a function's
-        execution. The console will first log 'Start' and 'End', and after 2
-        seconds, it will log the asynchronous message, demonstrating the
-        non-blocking nature of asynchronous code.
-      </p>
-      <p>
-        On the following page we will look into promises and async/await which are the most common ways to handle asynchronous code in JavaScript.
-      </p>
-    </div>
-    <div>
-      <p>
-        Continue to
-        <a href="page2.html">Page 2: Understanding Promises and Async/Await</a>
-      </p>
+        <p>
+          In this example, <code>setTimeout</code> is used to delay a function's
+          execution. The console will first log 'Start' and 'End', and after 2
+          seconds, it will log the asynchronous message, demonstrating the
+          non-blocking nature of asynchronous code.
+        </p>
+        <p style="margin-top: 100px;">
+            If you repeat the same thing but remove the setTimeout you will have the message <strong>'This is an asynchronous message'</strong> logged second.
+
+            <pre>
+                <code>
+            console.log('Start');
+                console.log('This is an asynchronous message');
+            console.log('End');
+                </code>
+            </pre>
+          </p>
+        <p style="margin-top: 100px;">
+          On the following page we will look into promises and async/await which
+          are the most common ways to handle asynchronous code in JavaScript.
+        </p>
+      </div>
+      <div>
+        <p>
+          Continue to
+          <a href="page2.html"
+            >Page 2: Understanding Promises and Async/Await</a
+          >
+        </p>
+      </div>
     </div>
 
     <main-footer></main-footer>
-    <script>
-
-    </script>
+    <script></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="app.js"></script>
   </body>

@@ -334,7 +334,7 @@ details,
 pre,
 progress {
   background-color: var(--accent-bg);
-  border: 1px solid var(--border);
+  border: 1px solid var(--marked);
   border-radius: var(--standard-border-radius);
   margin-bottom: 1rem;
 }
