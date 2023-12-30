@@ -1,7 +1,7 @@
 new Vue({
   el: "#app",
   data: {
-    accordions: [
+    accordionsNoCode: [
       {
         title: "Synchronous vs. Asynchronous Code",
         content:
@@ -15,10 +15,56 @@ new Vue({
         isOpen: false,
       },
     ],
+    accordionsWithCode: [
+      {
+        title: "Example: Using <code>setTimeout</code>",
+        content: `<p>
+                Click F12 on your keyboard.
+                Go to the console tab.
+                Type in the following code and press enter.
+            </p>
+            <pre>
+                <code>
+    console.log('Start');
+    setTimeout(() => {
+        console.log('This is an asynchronous message');
+    }, 2000);
+    console.log('End');
+                </code>
+            </pre>
+            <p>
+                In this example, <code>setTimeout</code> is used to delay a function's
+                execution. The console will first log 'Start' and 'End', and after 2
+                seconds, it will log the asynchronous message, demonstrating the
+                non-blocking nature of asynchronous code.
+            </p>`,
+        isOpen: false,
+      },
+      {
+        title: "Example: Without <code>setTimeout</code>",
+        content: `<p style="margin-top: 100px;">
+        If you repeat the same thing but remove the setTimeout you will have the message <strong>'This is an asynchronous message'</strong> logged second.
+
+        <pre>
+            <code>
+        console.log('Start');
+            console.log('This is an asynchronous message');
+        console.log('End');
+            </code>
+        </pre>
+      </p>`,
+        isOpen: false,
+      },
+    ],
   },
   methods: {
     toggleAccordion(index) {
-      this.accordions[index].isOpen = !this.accordions[index].isOpen;
+      this.accordionsNoCode[index].isOpen =
+        !this.accordionsNoCode[index].isOpen;
+    },
+    toggleAccordionWithCode(index) {
+      this.accordionsWithCode[index].isOpen =
+        !this.accordionsWithCode[index].isOpen;
     },
   },
 });

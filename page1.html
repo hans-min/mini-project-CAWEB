@@ -20,7 +20,7 @@
           code.
         </p>
         <div
-          v-for="(accordion, index) in accordions"
+          v-for="(accordion, index) in accordionsNoCode"
           :key="index"
           style="
             border: 1px solid var(--marked);
@@ -37,42 +37,26 @@
             {{ accordion.content }}
           </p>
         </div>
-        <h3>Example: Using <code>setTimeout</code></h3>
-        <p>
-            Click F12 on your keyboard.
-            Go to the console tab.
-            Type in the following code and press enter.
-          </p>
-        <pre>
-            <code>
-        console.log('Start');
-        setTimeout(() => {
-            console.log('This is an asynchronous message');
-        }, 2000);
-        console.log('End');
-            </code>
-        </pre>
-        <p>
-          In this example, <code>setTimeout</code> is used to delay a function's
-          execution. The console will first log 'Start' and 'End', and after 2
-          seconds, it will log the asynchronous message, demonstrating the
-          non-blocking nature of asynchronous code.
-        </p>
-        <p style="margin-top: 100px;">
-            If you repeat the same thing but remove the setTimeout you will have the message <strong>'This is an asynchronous message'</strong> logged second.
 
-            <pre>
-                <code>
-            console.log('Start');
-                console.log('This is an asynchronous message');
-            console.log('End');
-                </code>
-            </pre>
-          </p>
-        <p style="margin-top: 100px;">
-          On the following page we will look into promises and async/await which
-          are the most common ways to handle asynchronous code in JavaScript.
+        <div
+        v-for="(accordion, index) in accordionsWithCode"
+        :key="index"
+        style="
+          border: 1px solid var(--marked);
+          margin-top: 40px;
+          border-radius: var(--standard-border-radius);
+          padding: 10px;
+        "
+      >
+      <h3 @click="toggleAccordionWithCode(index)">
+        <span v-html="accordion.title"></span>
+        <span class="arrow">▼</span>
+      </h3>
+        <p v-if="accordion.isOpen" v-html="accordion.content">
+          {{ accordion.content }}
         </p>
+      </div>
+
       </div>
       <div>
         <p>
