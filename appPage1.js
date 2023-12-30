@@ -1,5 +1,5 @@
 new Vue({
-  el: "#app",
+  el: "#appPage1",
   data: {
     accordionsNoCode: [
       {
