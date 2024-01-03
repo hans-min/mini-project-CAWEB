@@ -22,6 +22,9 @@
         <div
           v-for="(accordion, index) in accordionsNoCode"
           :key="index"
+          @mouseover="toggleCursor"
+          @mouseleave="toggleCursor"
+          :class="{'custom-cursor': shouldApplyCursor}"
           style="
             border: 1px solid var(--marked);
             margin-top: 40px;
@@ -39,24 +42,26 @@
         </div>
 
         <div
-        v-for="(accordion, index) in accordionsWithCode"
-        :key="index"
-        style="
-          border: 1px solid var(--marked);
-          margin-top: 40px;
-          border-radius: var(--standard-border-radius);
-          padding: 10px;
-        "
-      >
-      <h3 @click="toggleAccordionWithCode(index)">
-        <span v-html="accordion.title"></span>
-        <span class="arrow">▼</span>
-      </h3>
-        <p v-if="accordion.isOpen" v-html="accordion.content">
-          {{ accordion.content }}
-        </p>
-      </div>
-
+          v-for="(accordion, index) in accordionsWithCode"
+          :key="index"
+          @mouseover="toggleCursor"
+          @mouseleave="toggleCursor"
+          :class="{'custom-cursor': shouldApplyCursor}"
+          style="
+            border: 1px solid var(--marked);
+            margin-top: 40px;
+            border-radius: var(--standard-border-radius);
+            padding: 10px;
+          "
+        >
+          <h3 @click="toggleAccordionWithCode(index)">
+            <span v-html="accordion.title"></span>
+            <span class="arrow">▼</span>
+          </h3>
+          <p v-if="accordion.isOpen" v-html="accordion.content">
+            {{ accordion.content }}
+          </p>
+        </div>
       </div>
       <div>
         <p>

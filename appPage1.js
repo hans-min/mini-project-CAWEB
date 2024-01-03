@@ -1,6 +1,7 @@
 new Vue({
   el: "#appPage1",
   data: {
+    shouldApplyCursor: false,
     accordionsNoCode: [
       {
         title: "Synchronous vs. Asynchronous Code",
@@ -65,6 +66,22 @@ new Vue({
     toggleAccordionWithCode(index) {
       this.accordionsWithCode[index].isOpen =
         !this.accordionsWithCode[index].isOpen;
+    },
+    toggleCursor() {
+      console.log("toggling cursor");
+      this.shouldApplyCursor = !this.shouldApplyCursor;
+    },
+    copyCode() {
+      console.log("copying code");
+      const code = this.$refs.codeBlockText.innerText;
+      navigator.clipboard
+        .writeText(code)
+        .then(() => {
+          console.log("Text copied to clipboard");
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+        });
     },
   },
 });

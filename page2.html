@@ -10,128 +10,137 @@
 
   <body>
     <main-header></main-header>
+    <div id="appPage1">
+      <div id="promises-intro">
+        <h1>Understanding Promises and Async/Await</h1>
+        <p>
+          Promises are used frequently in JavaScript, offering a more reliable
+          way to handle asynchronous operations. This section explains what
+          Promises are, the different states, and how to work with them.
+        </p>
+        <h2>What are Promises?</h2>
+        <p>
+          A Promise represents the eventual completion or failure of an
+          asynchronous operation. Promises have three states:
+        </p>
+        <ul>
+          <li>
+            <strong>Pending:</strong> The initial state, neither fulfilled nor
+            rejected.
+          </li>
+          <li>
+            <strong>Fulfilled:</strong> The operation completed successfully.
+          </li>
+          <li><strong>Rejected:</strong> The operation failed.</li>
+        </ul>
 
-    <div id="promises-intro">
-      <h1>Understanding Promises and Async/Await</h1>
-      <p>
-        Promises are used frequently in JavaScript, offering a more reliable way
-        to handle asynchronous operations. This section explains what Promises
-        are, the different states, and how to work with them.
-      </p>
-      <h2>What are Promises?</h2>
-      <p>
-        A Promise represents the eventual completion or failure of an
-        asynchronous operation. Promises have three states:
-      </p>
-      <ul>
-        <li>
-          <strong>Pending:</strong> The initial state, neither fulfilled nor
-          rejected.
-        </li>
-        <li>
-          <strong>Fulfilled:</strong> The operation completed successfully.
-        </li>
-        <li><strong>Rejected:</strong> The operation failed.</li>
-      </ul>
+        <h2>Creating and Resolving Promises</h2>
+        <p>To create a new Promise, use the Promise constructor:</p>
 
-      <h2>Creating and Resolving Promises</h2>
-      <p>To create a new Promise, use the Promise constructor:</p>
-      <pre>
-            <code>
-        const myPromise = new Promise((resolve, reject) => {
-            // Asynchronous operation code here
-            if (/* operation successful */) {
-                resolve('Success');
-            } else {
-                reject('Error');
-            }
-        });
+        <pre>
+            <code ref="codeBlockText">
+              const myPromise = new Promise((resolve, reject) => {
+                // Asynchronous operation code here
+                if (/* operation successful */) {
+                    resolve('Success');
+                } else {
+                    reject('Error');
+                }
+              });
+
             </code>
-        </pre>
-      <p>
-        The <code>resolve</code> function is called to fulfill the Promise, and
-        <code>reject</code> is called to reject it.
-      </p>
+            <button @click="copyCode">Copy</button>
+          </pre>
 
-      <h2>Working with Promises</h2>
-      <p>
-        Promises provide <code>then</code>, <code>catch</code>, and
-        <code>finally</code> methods to handle the results.
-      </p>
-      <h3>Using <code>then</code></h3>
-      <pre>
-            <code>
+        <p>
+          The <code>resolve</code> function is called to fulfill the Promise,
+          and <code>reject</code> is called to reject it.
+        </p>
+
+        <h2>Working with Promises</h2>
+        <p>
+          Promises provide <code>then</code>, <code>catch</code>, and
+          <code>finally</code> methods to handle the results.
+        </p>
+        <h3>Using <code>then</code></h3>
+        <pre>
+            <code ref="codeBlockText">
         myPromise.then(value => {
             // Code to handle the fulfilled value
         });
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
-      <h3>Using <code>catch</code></h3>
-      <pre>
-            <code>
+        <h3>Using <code>catch</code></h3>
+        <pre>
+            <code ref="codeBlockText">
         myPromise.catch(error => {
             // Code to handle the rejection
         });
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
-      <h3>Using <code>finally</code></h3>
-      <pre>
-            <code>
+        <h3>Using <code>finally</code></h3>
+        <pre>
+            <code ref="codeBlockText">
         myPromise.finally(() => {
             // Code to execute no matter the Promise's outcome
         });
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
-      <p>
-        The <code>then</code> method is when a Promise is fulfilled,
-        <code>catch</code> is for a rejection, and <code>finally</code> is
-        executed no matter the Promise's outcome.
-      </p>
-    </div>
-    <div id="async-await-intro">
-      <h1>Async/Await in JavaScript</h1>
-      <p>
-        The Async/Await syntax in JavaScript provides a more readable and
-        efficient way to handle promises. This section covers the basics of
-        async functions and how to use the await keyword.
-      </p>
+        <p>
+          The <code>then</code> method is when a Promise is fulfilled,
+          <code>catch</code> is for a rejection, and <code>finally</code> is
+          executed no matter the Promise's outcome.
+        </p>
+      </div>
+      <div id="async-await-intro">
+        <h1>Async/Await in JavaScript</h1>
+        <p>
+          The Async/Await syntax in JavaScript provides a more readable and
+          efficient way to handle promises. This section covers the basics of
+          async functions and how to use the await keyword.
+        </p>
 
-      <h2>Understanding Async Functions</h2>
-      <p>
-        An async function is a function declared with the
-        <code>async</code> keyword. Async functions always return a promise,
-        which can be resolved to a value or rejected with an error.
-      </p>
-      <pre>
-            <code>
+        <h2>Understanding Async Functions</h2>
+        <p>
+          An async function is a function declared with the
+          <code>async</code> keyword. Async functions always return a promise,
+          which can be resolved to a value or rejected with an error.
+        </p>
+        <pre>
+            <code ref="codeBlockText">
             async function fetchData() {
                 return 'Data fetched';
             }
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
 
-      <h2>Using Await</h2>
-      <p>
-        The <code>await</code> keyword is used inside async functions to pause
-        the execution until a promise is resolved, simplifying the way we write
-        asynchronous code.
-      </p>
-      <pre>
-            <code>
+        <h2>Using Await</h2>
+        <p>
+          The <code>await</code> keyword is used inside async functions to pause
+          the execution until a promise is resolved, simplifying the way we
+          write asynchronous code.
+        </p>
+        <pre>
+            <code ref="codeBlockText">
             async function fetchData() {
                 const data = await someAsyncOperation();
                 console.log(data);
             }
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
 
-      <h2>Error Handling with Try/Catch</h2>
-      <p>
-        In async functions, use try/catch blocks to handle errors that may occur
-        in promises.
-      </p>
-      <pre>
-            <code>
+        <h2>Error Handling with Try/Catch</h2>
+        <p>
+          In async functions, use try/catch blocks to handle errors that may
+          occur in promises.
+        </p>
+        <pre>
+            <code ref="codeBlockText">
         async function fetchData() {
             try {
                 const data = await someAsyncOperation();
@@ -141,32 +150,34 @@
             }
         }
             </code>
+            <button @click="copyCode">Copy</button>
         </pre>
-    </div>
+      </div>
 
-    <div>
-      <p>
-        Continue to
-        <a href="page3.html">Page 3: Introduction to the Fetch API</a>
-      </p>
-      <p>
-        Go back to
-        <a href="page1.html">Page 1: Introduction to Asynchronous JavaScript</a>
-      </p>
+      <div>
+        <p>
+          Continue to
+          <a href="page3.html">Page 3: Introduction to the Fetch API</a>
+        </p>
+        <p>
+          Go back to
+          <a href="page1.html"
+            >Page 1: Introduction to Asynchronous JavaScript</a
+          >
+        </p>
+      </div>
     </div>
     <main-footer></main-footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="app.js"></script>
+    <script src="appPage1.js"></script>
+
     <script>
-        document.querySelectorAll('pre code').forEach(blockOfCode => {
-          blockOfCode.addEventListener('mouseover', () => {
-            blockOfCode.style.transition = 'background-color 0.5s ease-in-out';
-            blockOfCode.style.backgroundColor = 'black';
-          });
+      document.querySelectorAll("pre code").forEach((blockOfCode) => {
+        blockOfCode.addEventListener("mouseover", () => {
+          blockOfCode.style.transition = "background-color 0.5s ease-in-out";
+          blockOfCode.style.backgroundColor = "black";
         });
-      </script>
-      </body>
-      </html>
-      
+      });
+    </script>
   </body>
 </html>
