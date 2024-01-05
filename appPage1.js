@@ -1,6 +1,7 @@
 new Vue({
   el: "#appPage1",
   data: {
+    showCatImage: false,
     shouldApplyCursor: false,
     accordionsNoCode: [
       {
@@ -89,5 +90,16 @@ new Vue({
           console.error("Failed to copy text: ", err);
         });
     },
+    fetchCatImageSync() {
+      i = 0;
+      while (i < 1000000000) {
+        i++;
+        if (i % 100000000 === 0) {
+          console.log(i);
+        }
+      }
+      this.showCatImage = !this.showCatImage;
+
+    }
   },
 });

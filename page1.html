@@ -15,12 +15,19 @@
         <h1>What and Why Do We Need Asynchronous Stuff</h1>
         <p>
           Up until now, you have probably written some JavaScript code, press
-          <kbd>Run</kbd> and BOOM : not a second later, some lines (or errors) are printed out onto the console.
-          Great! But what if you want to do something that takes a longer time to finish, for example
-          downloading a cat image for your application of Cute Cats Collection ? If you just fetch your image
-          as normal, the users of your app won't be able to interact with your app until the image is
-          finished downloading. This is where asynchronous programming comes in.
-
+          <kbd>Run</kbd> and BOOM : not a second later, some lines (or errors) are printed out onto the
+          console. Great ! <br> <br>
+          But what if you want to do something that takes a longer time to finish, for example
+          downloading a cat image for your application of Cute Cats Collection ?
+          </p>
+          <img v-show="showCatImage" src="images/cat.webp" alt="cute cat">
+          <button @click="fetchCatImageSync"> Fetch Cat Image </button>
+          <p>
+            Since Javascript is a single-threaded programming language, meaning it can only do one thing
+            at a time, so if you just fetch your image normally, the app will be lag and your users won't
+            be able to interact with the rest of your app until that cat image has finished
+            downloading. And if your app has to download multiple images, ONE BY ONE ? Oh boy. <br>
+            Lucky for you, this is where asynchronous programming comes in.
         </p>
         <div
           v-for="(accordion, index) in accordionsNoCode"
@@ -32,7 +39,7 @@
             border: 1px solid var(--marked);
             margin-top: 40px;
             border-radius: var(--standard-border-radius);
-            padding: 10px;
+            padding: 0 20px;
           "
         >
           <h3 @click="toggleAccordion(index)">
