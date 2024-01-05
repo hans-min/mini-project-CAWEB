@@ -12,12 +12,15 @@
     <main-header></main-header>
     <div id="appPage1">
       <div id="async-js-intro">
-        <h1>Introduction to Asynchronous JavaScript</h1>
+        <h1>What and Why Do We Need Asynchronous Stuff</h1>
         <p>
-          Asynchronous programming is used for handling API requests, file
-          reading, and other long processes. This page explains what they are,
-          why they're important, and how they're different from synchronous
-          code.
+          Up until now, you have probably written some JavaScript code, press
+          <kbd>Run</kbd> and BOOM : not a second later, some lines (or errors) are printed out onto the console.
+          Great! But what if you want to do something that takes a longer time to finish, for example
+          downloading a cat image for your application of Cute Cats Collection ? If you just fetch your image
+          as normal, the users of your app won't be able to interact with your app until the image is
+          finished downloading. This is where asynchronous programming comes in.
+
         </p>
         <div
           v-for="(accordion, index) in accordionsNoCode"
@@ -74,7 +77,6 @@
     </div>
 
     <main-footer></main-footer>
-    <script></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="appPage1.js"></script>
   </body>
