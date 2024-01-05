@@ -34,6 +34,7 @@
           :key="index"
           @mouseover="toggleCursor"
           @mouseleave="toggleCursor"
+          @click="toggleAccordion(index)"
           :class="{'custom-cursor': shouldApplyCursor}"
           style="
             border: 1px solid var(--marked);
@@ -42,9 +43,10 @@
             padding: 0 20px;
           "
         >
-          <h3 @click="toggleAccordion(index)">
+          <h3 @click="toggleAccordion(index)" >
             {{ accordion.title }}
-            <span class="arrow">▼</span>
+            <span class="arrow" v-if="!accordion.isOpen">▼</span>
+            <span class="arrow" v-if="accordion.isOpen">▲</span>
           </h3>
           <p v-if="accordion.isOpen" v-html="accordion.content">
             {{ accordion.content }}
@@ -56,6 +58,7 @@
           :key="index"
           @mouseover="toggleCursor"
           @mouseleave="toggleCursor"
+            @click="toggleAccordionWithCode(index)"
           :class="{'custom-cursor': shouldApplyCursor}"
           style="
             border: 1px solid var(--marked);
@@ -66,7 +69,8 @@
         >
           <h3 @click="toggleAccordionWithCode(index)">
             <span v-html="accordion.title"></span>
-            <span class="arrow">▼</span>
+            <span class="arrow" v-if="!accordion.isOpen">▼</span>
+            <span class="arrow" v-if="accordion.isOpen">▲</span>
           </h3>
           <p v-if="accordion.isOpen" v-html="accordion.content">
             {{ accordion.content }}
