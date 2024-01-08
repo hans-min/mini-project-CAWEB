@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asynchronous JavaScript and Fetch API Tutorial - Introduction</title>
+    <title>Introduction to Asynchronous Javascript</title>
     <link rel="stylesheet" href="simple.css" />
     <script src="header_footer_template.js"></script>
   </head>
@@ -11,39 +12,46 @@
   <body>
     <main-header></main-header>
     <div id="appPage1">
-      <div id="async-js-intro">
-        <h1>What and Why Do We Need Asynchronous Stuff</h1>
+      <section>
+        <h2>Why Do We Need Asynchronous Programming</h2>
         <p>
           Up until now, you have probably written some JavaScript code, press
           <kbd>Run</kbd> and BOOM : not a second later, some lines (or errors) are printed out onto the
           console. Great ! <br> <br>
           But what if you want to do something that takes a longer time to finish, for example
           downloading a cat image for your application of Cute Cats Collection ?
-          </p>
-          <img v-show="showCatImage" src="images/cat.webp" alt="cute cat">
-          <button @click="fetchCatImageSync"> Fetch Cat Image </button>
-          <p>
-            Since Javascript is a single-threaded programming language, meaning it can only do one thing
-            at a time, so if you just fetch your image normally, the app will be lag and your users won't
-            be able to interact with the rest of your app until that cat image has finished
-            downloading. And if your app has to download multiple images, ONE BY ONE ? Oh boy. <br>
-            Lucky for you, this is where asynchronous programming comes in.
         </p>
-        <div
-          v-for="(accordion, index) in accordionsNoCode"
-          :key="index"
-          @mouseover="toggleCursor"
-          @mouseleave="toggleCursor"
-          @click="toggleAccordion(index)"
-          :class="{'custom-cursor': shouldApplyCursor}"
+        <img v-show="showCatImage" src="images/cat.webp" alt="cute cat">
+        <button @click="fetchCatImageSync"> Fetch Cat Image </button>
+        <button> Try clicking this button immediately after clicking "Fetch Cat Image"</button>
+        <p>
+          You'll find that while our <code>fetchCatImage()</code> function is running, our program is
+          completely unresponsive: you can't click anything, type anything, or do anything else. The
+          reason for this is that this JavaScript program is single-threaded, meaning it can only do
+          one thing at a time. So if it is waiting for our long-running synchronous function to return,
+          it can't do anything else. <br> What we need is a way to run our long-running function and still
+          be responsive to other events by running that function on a different thread,
+          then notify us with the result
+          of the operation when it completes. And that's precisely what asynchronous functions do.
+        </p>
+        <details>
+          <summary>
+            An accordion to explain single-threaded and where asynchronous function run
+          </summary>
+        
+        </details>
+        
+        <img src="images/syncasync.png" alt="sync vs async">
+        <h2>How to use Asynchronous Programming</h2>
+        <div v-for="(accordion, index) in accordionsNoCode" :key="index" @mouseover="toggleCursor" @mouseleave="toggleCursor"
+          @click="toggleAccordion(index)" :class="{'custom-cursor': shouldApplyCursor}"
           style="
             border: 1px solid var(--marked);
             margin-top: 40px;
             border-radius: var(--standard-border-radius);
             padding: 0 20px;
-          "
-        >
-          <h3 @click="toggleAccordion(index)" >
+          ">
+          <h3 @click="toggleAccordion(index)">
             {{ accordion.title }}
             <span class="arrow" v-if="!accordion.isOpen">▼</span>
             <span class="arrow" v-if="accordion.isOpen">▲</span>
@@ -53,20 +61,13 @@
           </p>
         </div>
 
-        <div
-          v-for="(accordion, index) in accordionsWithCode"
-          :key="index"
-          @mouseover="toggleCursor"
-          @mouseleave="toggleCursor"
-            @click="toggleAccordionWithCode(index)"
-          :class="{'custom-cursor': shouldApplyCursor}"
-          style="
+        <div v-for="(accordion, index) in accordionsWithCode" :key="index" @mouseover="toggleCursor" @mouseleave="toggleCursor"
+          @click="toggleAccordionWithCode(index)" :class="{'custom-cursor': shouldApplyCursor}" style="
             border: 1px solid var(--marked);
             margin-top: 40px;
             border-radius: var(--standard-border-radius);
             padding: 10px;
-          "
-        >
+          ">
           <h3 @click="toggleAccordionWithCode(index)">
             <span v-html="accordion.title"></span>
             <span class="arrow" v-if="!accordion.isOpen">▼</span>
@@ -76,19 +77,18 @@
             {{ accordion.content }}
           </p>
         </div>
-      </div>
-      <div>
+      </section>
+      <section>
         <p>
           Continue to
-          <a href="page2.html"
-            >Page 2: Understanding Promises and Async/Await</a
-          >
+          <a href="page2.html">Page 2: Understanding Promises and Async/Await</a>
         </p>
-      </div>
+      </section>
     </div>
 
     <main-footer></main-footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="appPage1.js"></script>
   </body>
+
 </html>

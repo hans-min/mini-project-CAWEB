@@ -2,10 +2,8 @@
 :root,
 ::backdrop {
   /* Set sans-serif & mono fonts */
-  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
-    "Helvetica Neue", sans-serif;
-  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --sans-font: Avenir, Roboto, "Segoe UI", Arial, Helvetica, sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, monospace;
   --standard-border-radius: 5px;
   --bg: #212121;
   --accent-bg: #2b2b2b;
@@ -56,6 +54,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Use mono font for code elements */
+code, pre, pre span, kbd, samp {
+  font-family: var(--mono-font);
+  color: var(--code);
+}
+
 /* Make the body a nice central block */
 body {
   color: var(--text);
@@ -63,7 +67,7 @@ body {
   font-size: 1.15rem;
   line-height: 1.5;
   display: grid;
-  grid-template-columns: 1fr min(45rem, 90%) 1fr;
+  grid-template-columns: 1fr min(80rem, 90%) 1fr;
   margin: 0;
 }
 body > * {
@@ -146,33 +150,17 @@ h4 {
   font-size: 1.44rem;
 }
 
-h5 {
-  font-size: 1.15rem;
-}
-
-h6 {
-  font-size: 0.96rem;
-}
-
 p {
   margin: 1.5rem 0;
 }
 
 /* Prevent long strings from overflowing container */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
 /* Fix line height when title wraps */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   line-height: 1.1;
 }
 
@@ -195,18 +183,7 @@ h3 {
   }
 }
 
-/* Format links & buttons */
-/* a {
-  color: var(--preformatted);
-  text-decoration: none;
-}
-a:visited {
-  color: var(--accent-bg); 
-  text-decoration: none;
-} */
-
-a,
-a:visited {
+a, a:visited {
   color: var(--accent);
 }
 
@@ -579,11 +556,18 @@ mark a {
   color: #0d47a1;
 }
 
-img,
-video {
+img {
+  margin: 20px auto;
   max-width: 100%;
+  display: block;
   height: auto;
   border-radius: var(--standard-border-radius);
+}
+
+@media only screen and (min-width: 1050px) {
+  img {
+    max-width: 900px;
+  }
 }
 
 figure {
@@ -619,16 +603,6 @@ dt {
   color: var(--text-light);
 }
 
-/* Use mono font for code elements */
-code,
-pre,
-pre span,
-kbd,
-samp {
-  font-family: var(--mono-font);
-  color: var(--code);
-}
-
 kbd {
   color: var(--preformatted);
   border: 1px solid var(--preformatted);
@@ -651,6 +625,17 @@ pre code {
   margin: 0;
   padding: 0;
 }
+
+/* Classes for notices */
+.notice {
+  background: var(--accent-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+
 
 /* Progress bars */
 /* Declarations are repeated because you */
@@ -694,13 +679,6 @@ dialog::backdrop {
   opacity: 0.8;
 }
 
-@media only screen and (max-width: 720px) {
-  dialog {
-    max-width: 100%;
-    margin: auto 1em;
-  }
-}
-
 /* Superscript & Subscript */
 /* Prevent scripts from affecting line-height. */
 sup,
@@ -715,13 +693,4 @@ sup {
 
 sub {
   top: 0.3em;
-}
-
-/* Classes for notices */
-.notice {
-  background: var(--accent-bg);
-  border: 2px solid var(--border);
-  border-radius: var(--standard-border-radius);
-  padding: 1.5rem;
-  margin: 2rem 0;
 }

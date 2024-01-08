@@ -2,7 +2,7 @@ class Header extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <header>
-    <h1>What the heck is Asynchronous - Javascript Edition</h1>
+    <h1>What the heck is Asynchronous Programming - Javascript Edition</h1>
     <nav>
         <ul>
             <li>

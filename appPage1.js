@@ -91,11 +91,11 @@ new Vue({
         });
     },
     fetchCatImageSync() {
-      i = 0;
-      while (i < 1000000000) {
-        i++;
-        if (i % 100000000 === 0) {
-          console.log(i);
+      const seconds = new Date().getTime() / 1000;
+      while (true) {
+        if (new Date().getTime() / 1000 - seconds >= 3) {
+          console.log("Lag for 3 seconds");
+          break;
         }
       }
       this.showCatImage = !this.showCatImage;
