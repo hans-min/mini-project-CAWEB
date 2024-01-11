@@ -55,7 +55,11 @@ html {
 }
 
 /* Use mono font for code elements */
-code, pre, pre span, kbd, samp {
+code,
+pre,
+pre span,
+kbd,
+samp {
   font-family: var(--mono-font);
   color: var(--code);
 }
@@ -155,12 +159,20 @@ p {
 }
 
 /* Prevent long strings from overflowing container */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
 /* Fix line height when title wraps */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.1;
 }
 
@@ -183,7 +195,8 @@ h1, h2, h3 {
   }
 }
 
-a, a:visited {
+a,
+a:visited {
   color: var(--accent);
 }
 
