@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Introduction to Asynchronous Javascript</title>
-    <link rel="stylesheet" href="simple.css" />
-    <script src="header_footer_template.js"></script>
+    <link rel="stylesheet" href="css/simple.css" />
+    <script src="js/header_footer_template.js"></script>
   </head>
 
   <body>
@@ -33,15 +33,9 @@
           be responsive to other events by running that function on a different thread,
           then notify us with the result
           of the operation when it completes. And that's precisely what asynchronous functions do.
-        </p>
-        <details>
-          <summary>
-            An accordion to explain single-threaded and where asynchronous function run
-          </summary>
-        
-        </details>
-        
+        </p>        
         <img src="images/syncasync.png" alt="sync vs async">
+        
         <h2>How to use Asynchronous Programming</h2>
         <div v-for="(accordion, index) in accordionsNoCode" :key="index" @mouseover="toggleCursor" @mouseleave="toggleCursor"
           @click="toggleAccordion(index)" :class="{'custom-cursor': shouldApplyCursor}"

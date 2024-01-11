@@ -1,54 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction to the Fetch API - Making Network Requests</title>
-    <script src="header_footer_template.js"></script>
-    <link rel="stylesheet" href="simple.css" />
+    <title>Make HTTP Requests using Fetch API</title>
+    <link rel="stylesheet" href="css/simple.css" />
+    <link rel="stylesheet" href="css/prism.css" />
+    <script src="js/header_footer_template.js"></script>
   </head>
 
   <body>
     <main-header></main-header>
 
-    <div id="fetch-api-basics">
-      <h2>Basic Concepts of the Fetch API</h2>
-      <p>
-        Learn about the basic principles and how the Fetch API works in
-        JavaScript.
-      </p>
-      <ul>
-        <li>
-          Understanding the Fetch API and its role in modern web development.
-        </li>
-        <li>Comparison of Fetch API with traditional XMLHttpRequest.</li>
-      </ul>
-    </div>
+    <div id="page3">
+      <section>
+        <h2>Basic Concepts of the Fetch API</h2>
+        <p>
+          Remember our <code>fetchCatImage()</code> function from Page 1? Let's
+          rewrite it with Promises and Fetch API so that our web can still be
+          responsive while the function runs.
+        </p>
+        <pre>
+              <code class="language-javascript">
+                function fetchCatImage() {
+                  fetch('https://api.thecatapi.com/v1/images/search')
+                    .then((response) => response.json())
+                    .then((json)     => console.log(json))
+                    .then((json)     => console.log(json[0].url))
+                }
+              </code>
+            </pre>
+        <img :src="imgsrc">
+        <button @click="fetchCatImage"> Fetch Cat Image </button>
 
-    <div id="get-requests">
-      <h2>Making GET Requests</h2>
-      <p>
-        Step-by-step guide on how to make simple GET requests using the Fetch
-        API.
-      </p>
-      <ul>
-        <li>How to structure a GET request.</li>
-        <li>Retrieving and processing data from a server.</li>
-      </ul>
-    </div>
+        <div id="get-requests">
+          <h2>Making GET Requests</h2>
+          <p>
+            Step-by-step guide on how to make simple GET requests using the Fetch
+            API.
+          </p>
+          <ul>
+            <li>How to structure a GET request.</li>
+            <li>Retrieving and processing data from a server.</li>
+          </ul>
+        </div>
 
-    <div id="response-error-handling">
-      <h2>Handling Responses and Errors</h2>
-      <p>
-        Understand how to effectively handle server responses and manage errors.
-      </p>
-      <ul>
-        <li>Interpreting JSON and other response formats.</li>
-        <li>Best practices for error handling in network requests.</li>
-      </ul>
-    </div>
-
-    <div>
+        <div id="response-error-handling">
+          <h2>Handling Responses and Errors</h2>
+          <p>
+            Understand how to effectively handle server responses and manage errors.
+          </p>
+          <ul>
+            <li>Interpreting JSON and other response formats.</li>
+            <li>Best practices for error handling in network requests.</li>
+          </ul>
+        </div>
+      </section>
+      <section>
       <p>
         Continue to <a href="page4.html">Page 4: Advanced Fetch API Usage</a>
       </p>
@@ -56,9 +65,14 @@
         Go back to
         <a href="page2.html">Page 2: Understanding Promises and Async/Await</a>
       </p>
+    </section>
     </div>
+
+    
     <main-footer></main-footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="app.js"></script>
+    <script src="js/scriptPage3.js"></script>
+    <script src="js/prism.js"></script>
   </body>
+
 </html>
