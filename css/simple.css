@@ -249,7 +249,7 @@ input:enabled:focus-visible:where(
   outline-offset: 1px;
 }
 .custom-cursor {
-  cursor: url("./images/customCursor.png"), auto;
+  cursor: url("../images/customCursor.png"), auto;
 }
 /* Format navigation */
 header > nav {
