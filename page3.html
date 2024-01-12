@@ -11,30 +11,62 @@
 
   <body>
     <main-header></main-header>
-
+    
     <div id="page3">
       <section>
-        <h2>Basic Concepts of the Fetch API</h2>
+        <h2>How to use Promises with <code>fetch()</code></h2>
         <p>
           Remember our <code>fetchCatImage()</code> function from Page 1? Let's
           rewrite it with Promises and Fetch API so that our web can still be
-          responsive while the function runs.
+          responsive while the function runs. We will use 
+          <a href="https://thecatapi.com/">the Cat API</a>
+          to get a <kbd>random</kbd> cat image each time we press the button.
         </p>
         <pre>
-              <code class="language-javascript">
-                function fetchCatImage() {
-                  fetch('https://api.thecatapi.com/v1/images/search')
-                    .then((response) => response.json())
-                    .then((json)     => console.log(json))
-                    .then((json)     => console.log(json[0].url))
-                }
+              <code class="language-javascript" id="code-e">
+
+          fetch('https://api.thecatapi.com/v1/images/search')
+            .then((response) => response.json())
+            .then((json)     => {
+              console.log(json);
+              this.imgsrc = json[0].url;  //assign src to the img element
+            })   
               </code>
+        <button @click="fetchCatImage">Run</button>
+
             </pre>
-        <img :src="imgsrc" />
-        <button @click="fetchCatImage">Fetch Cat Image</button>
+            <div class="notice">
+              <h4>Console</h4>
+              <p>
+                {{console}}
+              </p>
+            </div>
+        <img :src="imgsrc" alt="Cat image goes here"/>
+        <p>
+          So what's going on up there in the code? Let's break it down:
+          <ol>
+            <li>
+              We call the <code>fetch()</code> function, passing it the URL of 
+              the cat API. This returns a <code>Promise</code>.
+            </li>
+            <li>
+              We call <code>then()</code> on the <code>Promise</code> with the 
+              <code>(response) => response.json()</code> callback, meaning when 
+              the Promise is resolved, we will turn the response object into a 
+              JSON and return it.
+            </li>
+            <li>
+              We <code>then</code> take that JSON above as an argument and 
+              <code> log it to the console</code>. 
+              You can see in the console that the JSON is an array with 1 element, 
+              and that element contains an URL to a cat image. We then assign
+              that URL to the <code>imgsrc</code> variable, which is bound to
+              the <code>src</code> attribute of the <code>img</code> element above.
+            </li>
+        </p>
 
         <div id="get-requests">
-          <h2>Making GET Requests</h2>
+          <h2>The Fetch API</h2>
           <p>
             Step-by-step guide on how to make simple GET requests using the
             Fetch API.
@@ -58,18 +90,41 @@
         </div>
       </section>
       <section>
+        <h2>Vocabulary</h2>
+      <details id="API">
+        <summary>What is an API?</summary>
+         <blockquote cite="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#what_are_apis">
+          <p>
+          Application Programming Interfaces (APIs) are constructs made 
+          available in programming languages to allow developers to create 
+          complex functionality more easily. They abstract more complex code
+         away from you, providing some easier syntax to use in its place. <br>
+         As a real-world example, think about the electricity supply in your 
+         house, apartment, or other dwellings. If you want to use an appliance
+         in your house, you plug it into a plug socket and it works. You don't 
+         try to wire it directly into the power supply — to do so would be 
+         really inefficient and, if you are not an electrician, difficult and 
+         dangerous to attempt.
+          </p>
+          <cite>—MDN Web Docs, Introduction to Web APIs</cite>
+        </blockquote>
+        </p>
+      </details>
+      
+      </section>
+      
+      <section>
         <p>
           Continue to <a href="page4.html">Page 4: Advanced Fetch API Usage</a>
         </p>
         <p>
           Go back to
-          <a href="page2.html"
-            >Page 2: Understanding Promises and Async/Await</a
-          >
+          <a href="page2.html">
+            Page 2: Understanding Promises and Async/Await
+          </a>
         </p>
       </section>
     </div>
-
     <main-footer></main-footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="js/scriptPage3.js"></script>

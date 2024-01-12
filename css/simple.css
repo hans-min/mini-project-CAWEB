@@ -34,20 +34,7 @@ progress {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-#code-editor {
-  width: 100%;
-  height: 150px;
-  background-color: white;
-  color: black;
-}
-#output {
-  width: 100%;
-  height: 200px;
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  background-color: white;
-  color: black;
-}
+
 html {
   /* Set the font globally */
   font-family: var(--sans-font);
@@ -115,24 +102,6 @@ main-footer {
   font-size: 0.9rem;
   text-align: center;
   border-top: 1px solid var(--border);
-}
-.navigation-section {
-  margin-top: 1rem;
-  padding: 2rem 1rem 1.5rem 1rem;
-  color: var(--text-light);
-  font-size: 0.9rem;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  background-color: var(--preformatted);
-}
-.navigation-section > button {
-  background-color: var(--marked);
-}
-.navigation-section > p > a {
-  color: var(--marked);
 }
 
 /* Format headers */
@@ -261,9 +230,11 @@ input:enabled:focus-visible:where(
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
+
 .custom-cursor {
   cursor: url("../images/customCursor.png"), auto;
 }
+
 /* Format navigation */
 header > nav {
   font-size: 1rem;
@@ -321,43 +292,15 @@ header > nav a[aria-current="page"] {
 }
 
 /* Consolidate box styling */
-aside,
 details,
-pre,
-progress {
+pre{
   background-color: var(--accent-bg);
   border: 1px solid var(--marked);
   border-radius: var(--standard-border-radius);
   margin-bottom: 1rem;
 }
 
-aside {
-  font-size: 1rem;
-  width: 30%;
-  padding: 0 15px;
-  margin-inline-start: 15px;
-  float: right;
-}
-
-/* Make aside full-width on mobile */
-@media only screen and (max-width: 720px) {
-  aside {
-    width: 100%;
-    float: none;
-    margin-inline-start: 0;
-  }
-}
-
-article,
-fieldset,
-dialog {
-  border: 1px solid var(--border);
-  padding: 1rem;
-  border-radius: var(--standard-border-radius);
-  margin-bottom: 1rem;
-}
-
-article h2:first-child,
+/* Format section */
 section h2:first-child {
   margin-top: 1rem;
 }
@@ -381,6 +324,7 @@ section:last-child {
   padding-bottom: 0;
 }
 
+/* Format accordion */
 details {
   padding: 0.7rem 1rem;
 }
@@ -403,34 +347,6 @@ details[open] > summary {
 
 details[open] > :last-child {
   margin-bottom: 0;
-}
-
-/* Format tables */
-table {
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-}
-
-td,
-th {
-  border: 1px solid var(--border);
-  text-align: start;
-  padding: 0.5rem;
-}
-
-th {
-  background-color: var(--accent-bg);
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  /* Set every other cell slightly darker. Improves readability. */
-  background-color: var(--accent-bg);
-}
-
-table caption {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 /* Format forms */
@@ -536,25 +452,6 @@ input[type="radio"]:checked::after {
   }
 }
 
-/* Misc body elements */
-hr {
-  border: none;
-  height: 1px;
-  background: var(--border);
-  margin: 1rem auto;
-}
-
-mark {
-  padding: 2px 5px;
-  border-radius: var(--standard-border-radius);
-  background-color: var(--marked);
-  color: black;
-}
-
-mark a {
-  color: #0d47a1;
-}
-
 img {
   margin: 20px auto;
   max-width: 100%;
@@ -597,6 +494,6 @@ pre code {
   background: var(--accent-bg);
   border: 2px solid var(--border);
   border-radius: var(--standard-border-radius);
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   margin: 2rem 0;
 }

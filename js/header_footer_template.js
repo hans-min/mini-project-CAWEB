@@ -6,13 +6,13 @@ class Header extends HTMLElement {
     <nav>
         <ul>
             <li>
-                <a href="page1.html">Introduction to Asynchronous JavaScript</a>
+                <a href="page1.html">Asynchronous JavaScript</a>
             </li>
             <li>
-                <a href="page2.html">Understanding Promises and Async/Await</a>
+                <a href="page2.html">Promises and Async/Await</a>
             </li>
             <li>
-                <a href="page3.html">Introduction to the Fetch API</a>
+                <a href="page3.html">HTTP Requests and Fetch API</a>
             </li>
             <li>
                 <a href="page4.html">Advanced Fetch API Usage</a>
