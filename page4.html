@@ -2,57 +2,76 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced Fetch API Usage - Complex Use Cases</title>
-    <link rel="stylesheet" href="css/simple.css" />
+    <title>Fetch API</title>
+    <head-css></head-css>
     <script src="js/header_footer_template.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="js/scriptPage4.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
   </head>
 
   <body>
     <main-header></main-header>
-    <div>
+    <div id="page4">
       <section>
-        <div id="advanced-fetch-intro">
-          <h2>Advanced Fetch API Techniques</h2>
-          <p>
-            Delve into more sophisticated applications of the Fetch API, suitable
-            for complex projects.
-          </p>
-        </div>
+        https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Introducing#event_handlers
+        <br>
+        Unlike XMLHttpRequest that is a callback-based API, Fetch is promise-based and provides a better alternative that can be easily used in service workers. Fetch also integrates advanced HTTP concepts such as CORS and other extensions to HTTP.
+        <h2>How to use Promises with <code>fetch()</code></h2>
+        <p>
+          Remember our <code>fetchCatImage()</code> function from Page 1? Let's
+          rewrite it with Promises and Fetch API so that our web can still be
+          responsive while the function runs. We will use 
+          <a href="https://thecatapi.com/">the Cat API</a>
+          to get a <kbd>random</kbd> cat image each time we press the button.
+        </p>
+        <pre>
+              <code class="language-javascript">
 
-        <div id="post-put-delete-requests">
-          <h2>Making POST, PUT, and DELETE Requests</h2>
-          <p>
-            Learn how to send data to servers and manage resources using different
-            types of HTTP requests.
-          </p>
-          <ul>
-            <li>Creating POST requests to send data to a server.</li>
-            <li>Updating data with PUT requests.</li>
-            <li>Deleting data with DELETE requests.</li>
-          </ul>
-        </div>
+          fetch('https://api.thecatapi.com/v1/images/search')
+            .then((response) => response.json())
+            .then((json)     => {
+              console.log(json);
+              this.imgsrc = json[0].url;  //assign src to the img element
+            })   
+              </code>
+        <button @click="fetchCatImage">Run</button>
 
-        <div id="working-with-headers">
-          <h2>Working with Headers and Sending Data</h2>
-          <p>
-            Understand how to modify request headers and send structured data in
-            various formats.
-          </p>
-          <ul>
-            <li>Customizing headers for different types of requests.</li>
-            <li>Sending form data, JSON, and other formats.</li>
-          </ul>
-        </div>
-
-        <div id="third-party-api-examples">
-          <h2>Interacting with Third-Party APIs</h2>
-          <p>
-            Explore practical examples demonstrating interactions with external APIs
-            using the Fetch API.
-          </p>
-        </div>
+            </pre>
+            <div class="notice">
+              <h4>Console</h4>
+              <p>
+                {{console}}
+              </p>
+            </div>
+        <img :src="imgsrc" alt="Cat image goes here"/>
+        <p>
+          So what's going on up there in the code? Let's break it down:
+          <ol>
+            <li>
+              We call the <code>fetch()</code> function, passing it the URL of 
+              the cat API. This returns a <code>Promise</code>.
+            </li>
+            <li>
+              We call <code>then()</code> on the <code>Promise</code> with the 
+              <code>(response) => response.json()</code> callback, meaning when 
+              the Promise is resolved, we will turn the response object into a 
+              JSON and return it.
+            </li>
+            <li>
+              We <code>then</code> take that JSON above as an argument and 
+              <code> log it to the console</code>. 
+              You can see in the console that the JSON is an array with 1 element, 
+              and that element contains an URL to a cat image. We then assign
+              that URL to the <code>imgsrc</code> variable, which is bound to
+              the <code>src</code> attribute of the <code>img</code> element above.
+            </li>
+        </p>
+        <h2>The Fetch API</h2>
+        
+      </section>
+      <section>
         <div>
           <h2>Cool References to check out</h2>
           <ul>
@@ -62,50 +81,29 @@
               </a>
             </li>
             <li>
+              <a href="https://www.youtube.com/watch?v=x3c1ih2NJEg">
+                :How does the INTERNET work? | ICT #2
+              </a>
+            </li>
+            <li>
               <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">
-                What the heck is the event loop anyway? | Philip Roberts | JSConf EU
-              </a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Basic_concepts">
-                MDN Web Docs: Basic Concepts
-              </a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">
-                MDN Web Docs: Using Fetch
-              </a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">
-                MDN Web Docs: Using Fetch
-              </a>
-            </li>
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">
-                MDN Web Docs: Using Fetch
+                :What the heck is the event loop anyway? | Philip Roberts | JSConf EU
               </a>
             </li>
           </ul>
         </div>
       </section>
-
       <section>
         <p>
-          Return to
-          <a href="page1.html">Introduction to Asynchronous JavaScript</a>
-        </p>
-        <p>
           Go back to
-          <a href="page3.html">Page 3: Introduction to the Fetch API</a>
+          <a href="page3.html">Page 3: API and HTTP Requests</a>
         </p>
       </section>
+
     </div>
 
     <main-footer></main-footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="app.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
+    
   </body>
 
 </html>

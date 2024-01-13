@@ -1,133 +1,185 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Make HTTP Requests using Fetch API</title>
-    <link rel="stylesheet" href="css/simple.css" />
-    <link rel="stylesheet" href="css/prism.css" />
+    <title>API and HTTP Requests</title>
+    <head-css></head-css>
     <script src="js/header_footer_template.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   </head>
 
   <body>
     <main-header></main-header>
-    
+
     <div id="page3">
       <section>
-        <h2>How to use Promises with <code>fetch()</code></h2>
         <p>
-          Remember our <code>fetchCatImage()</code> function from Page 1? Let's
-          rewrite it with Promises and Fetch API so that our web can still be
-          responsive while the function runs. We will use 
-          <a href="https://thecatapi.com/">the Cat API</a>
-          to get a <kbd>random</kbd> cat image each time we press the button.
+          As we delve into the realm of web development, one of the most significant
+          applications we encounter is the use of asynchronous programming to interact
+          with APIs through HTTP requests. This is where the true power of
+          <code>Promises</code> and <code>async/await</code> shines. But first, we need to
+          understand what API and HTTPS requests are.
         </p>
-        <pre>
-              <code class="language-javascript" id="code-e">
-
-          fetch('https://api.thecatapi.com/v1/images/search')
-            .then((response) => response.json())
-            .then((json)     => {
-              console.log(json);
-              this.imgsrc = json[0].url;  //assign src to the img element
-            })   
-              </code>
-        <button @click="fetchCatImage">Run</button>
-
-            </pre>
-            <div class="notice">
-              <h4>Console</h4>
-              <p>
-                {{console}}
-              </p>
-            </div>
-        <img :src="imgsrc" alt="Cat image goes here"/>
+        <h2>API</h2>
+        <details>
+          <summary>What is an API?</summary>
+          <blockquote
+            cite="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#what_are_apis">
+            <p>
+              Application Programming Interfaces (APIs) are constructs made available in
+              programming languages to allow developers to create complex functionality
+              more easily. They abstract more complex code away from you, providing some
+              easier syntax to use in its place.
+              <br />
+              <br />
+              As a real-world example, think about the electricity supply in your house,
+              apartment, or other dwellings. If you want to use an appliance in your
+              house, you plug it into a plug socket and it works. You don't try to wire it
+              directly into the power supply — to do so would be really inefficient and,
+              if you are not an electrician, difficult and dangerous to attempt.
+            </p>
+            <cite>—MDN Web Docs, Introduction to Web APIs</cite>
+          </blockquote>
+        </details>
         <p>
-          So what's going on up there in the code? Let's break it down:
-          <ol>
-            <li>
-              We call the <code>fetch()</code> function, passing it the URL of 
-              the cat API. This returns a <code>Promise</code>.
-            </li>
-            <li>
-              We call <code>then()</code> on the <code>Promise</code> with the 
-              <code>(response) => response.json()</code> callback, meaning when 
-              the Promise is resolved, we will turn the response object into a 
-              JSON and return it.
-            </li>
-            <li>
-              We <code>then</code> take that JSON above as an argument and 
-              <code> log it to the console</code>. 
-              You can see in the console that the JSON is an array with 1 element, 
-              and that element contains an URL to a cat image. We then assign
-              that URL to the <code>imgsrc</code> variable, which is bound to
-              the <code>src</code> attribute of the <code>img</code> element above.
-            </li>
+          Basically, <code>API</code> is a tool, an abstraction to help you do what you
+          want more easily. Think of it as a complex function that you can just call and
+          use without having to know how it actually works under the hood. <br /><br />
+          Take Photoshop as an example. With Photoshop, if you want to blur an image, you
+          can just use the blur tool. Without Photoshop, you would have to learn the
+          algorithm of image blurring, then write the program for it. <br />
+          In the same way, <code>API</code> is a tool for developers. Every time
+          developers write a new program, they don't have to start from scratch to build
+          an application that tries to do everything. Instead, they can contract out
+          certain responsibilities by using existing <code>APIs</code> that do the job
+          better.
         </p>
 
-        <div id="get-requests">
-          <h2>The Fetch API</h2>
-          <p>
-            Step-by-step guide on how to make simple GET requests using the
-            Fetch API.
-          </p>
-          <ul>
-            <li>How to structure a GET request.</li>
-            <li>Retrieving and processing data from a server.</li>
-          </ul>
-        </div>
+        <h3>What can APIs do?</h3>
+        <p>
+          Ever wonder how when you ask Alexa to play a song on Spotify, it works? Or how
+          when you search for all nearby stores on a shopping website, it shows you a list
+          of stores pinned on a Google Map ? How did they do that ? Did they hire Google
+          to help create their map?
+        </p>
+        <img src="images/tnf_maps.png" alt="The North Face stores on Google Maps" />
 
-        <div id="response-error-handling">
-          <h2>Handling Responses and Errors</h2>
-          <p>
-            Understand how to effectively handle server responses and manage
-            errors.
-          </p>
-          <ul>
-            <li>Interpreting JSON and other response formats.</li>
-            <li>Best practices for error handling in network requests.</li>
-          </ul>
-        </div>
+        <p>
+          No, they probably don't, that is actually all thanks to <code>APIs</code>.
+          <br />
+          <code>APIs</code> are everywhere you look - and you might not even realize it.
+          There is an API for just about anything we can think of: from the Weather to
+          Maps, Authentication, Bluetooth, Stock Prices, Cat Images, Pokemon database,
+          useless but true facts, Anime quotes, etc... Some of them are free, without
+          needing any API keys (<a href="https://thecatapi.com/">the Cat API</a>), most
+          are free but requires API keys (<a href="https://openweathermap.org/api"
+            >OpenWeather API</a
+          >), and some are paid (<a href="https://developers.google.com/maps"
+            >Google Maps API</a
+          >,
+          <a href="https://platform.openai.com/docs/api-reference/introduction">
+            ChatGPT API</a
+          >).
+        </p>
+
+        <p>
+          There are a few ways to access the functionality provided by third party
+          <code>APIs</code>, but for this article we'll focus on making an
+          <code>HTTP</code> request to a specific <code>URL</code> pattern to retrieve
+          data.
+        </p>
       </section>
       <section>
-        <h2>Vocabulary</h2>
-      <details id="API">
-        <summary>What is an API?</summary>
-         <blockquote cite="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#what_are_apis">
+        <h2>HTTP</h2>
+        <details>
+          <summary>What is protocol?</summary>
           <p>
-          Application Programming Interfaces (APIs) are constructs made 
-          available in programming languages to allow developers to create 
-          complex functionality more easily. They abstract more complex code
-         away from you, providing some easier syntax to use in its place. <br>
-         As a real-world example, think about the electricity supply in your 
-         house, apartment, or other dwellings. If you want to use an appliance
-         in your house, you plug it into a plug socket and it works. You don't 
-         try to wire it directly into the power supply — to do so would be 
-         really inefficient and, if you are not an electrician, difficult and 
-         dangerous to attempt.
+            The language used to ask for data to get sent—in either direction—is called
+            the protocol. The protocol describes exactly how to ask the server for data,
+            or to tell the server that there is data coming.
           </p>
-          <cite>—MDN Web Docs, Introduction to Web APIs</cite>
-        </blockquote>
+        </details>
+        <p>
+          <code>HTTP</code> stands for HyperText Transfer Protocol. It is a
+          request-response protocol — this means that the client sends a request to the
+          server, and the server sends a response back to the client.
         </p>
-      </details>
-      
+        <h3>HTTP Messages</h3>
+        <p>
+          There are two types of HTTP messages, requests and responses, each with its own
+          format.
+        </p>
+        <h4>Request</h4>
+        <pre><code class="language-javascript">
+          GET /v1/images/search HTTP/1.1
+          Host: api.thecatapi.com
+          Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+        </code></pre>
+        <p>Requests consist of the following elements:</p>
+        <ul>
+          <li>
+            An HTTP method that defines the operation the client wants to perform.
+            Typically, a client wants to fetch a resource (using <code>GET</code>) or post
+            the value of an HTML form (using <code>POST</code>). Full list of HTTP methods
+            can be found
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">here</a>.
+          </li>
+          <li>The path of the resource to fetch (<code>/v1/images/search</code>).</li>
+          <li>The version of the HTTP protocol. (<code>HTTP/1.1</code>)</li>
+          <li>
+            Optional headers that convey additional information for the servers (
+            <code>Host</code> and <code>Authorization</code>).
+          </li>
+          <li>
+            A body, for some methods like <code>POST</code>, similar to those in
+            responses, which contain the resource sent. This is optional, as
+            <code>GET</code> requests usually don't need a body.
+          </li>
+        </ul>
+
+        <h4>Response</h4>
+        <pre><code class="language-javascript">
+          HTTP/1.1 200 OK
+          content-type: application/json; charset=utf-8
+          Content-Length: 90
+
+          [{"id":"bvg","url":"https://cdn2.thecatapi.com/images/bvg.jpg",
+          "width":1024,"height":768}]
+        </code></pre>
+        <p>Responses consist of the following elements:</p>
+        <ul>
+          <li>The version of the HTTP protocol they follow(<code>HTTP/1.1</code>).</li>
+          <li>
+            A status code and message, indicating if the request was successful or not,
+            and why (<code>200 OK</code>). A common example is the infamous
+            <code>404 Not Found</code> status code. For a full list of status codes and
+            their meaning, click
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>.
+          </li>
+          <li>
+            HTTP headers, like those for requests (e.g: <code>Content-Length</code> and
+            <code>content-type</code>).
+          </li>
+          <li>
+            Optionally, a body containing the fetched resource.
+            (<code>[{"id":"bvg"..."height":768}]</code>)
+          </li>
+        </ul>
+
+        In the next page, you will see this all in action with the <code>fetch()</code> API. 
       </section>
-      
+
       <section>
         <p>
-          Continue to <a href="page4.html">Page 4: Advanced Fetch API Usage</a>
+          Continue to
+          <a href="page4.html">Page 4: Fetch API</a>
         </p>
         <p>
           Go back to
-          <a href="page2.html">
-            Page 2: Understanding Promises and Async/Await
-          </a>
+          <a href="page2.html"> Page 2: Understanding Promises and Async/Await </a>
         </p>
       </section>
     </div>
     <main-footer></main-footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script src="js/scriptPage3.js"></script>
-    <script src="js/prism.js"></script>
   </body>
 </html>

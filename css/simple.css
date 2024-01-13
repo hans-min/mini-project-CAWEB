@@ -203,7 +203,7 @@ input[type="range"] {
   padding: 0;
 }
 
-/* Set the cursor to '?' on an abbreviation and style the abbreviation to show that there is more information underneath */
+/* Set the cursor to '?' on an abbreviation */
 abbr[title] {
   cursor: help;
   text-decoration-line: underline;
