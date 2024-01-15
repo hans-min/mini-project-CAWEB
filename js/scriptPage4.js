@@ -7,7 +7,13 @@ new Vue({
   methods: {
     fetchCatImage() {
       fetch("https://api.thecatapi.com/v1/images/search")
-        .then((response) => response.json())
+        .then((response) => {
+          if (!response.ok) {
+            console.error(response);
+            throw Error(`HTTP code: ${response.status}`);
+          }
+          return response.json();
+        })
         .then((json) => {
           var formattedData = JSON.stringify(json, null, 2);
           this.console = formattedData;
