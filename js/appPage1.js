@@ -30,7 +30,7 @@ new Vue({
                 Type in the following code and press enter.
             </p>
             <pre>
-                <code>
+                <code class="language-javascript">
     console.log('Start');
     setTimeout(() => {
         console.log('This is an asynchronous message');
@@ -65,12 +65,10 @@ new Vue({
   },
   methods: {
     toggleAccordion(index) {
-      this.accordionsNoCode[index].isOpen =
-        !this.accordionsNoCode[index].isOpen;
+      this.accordionsNoCode[index].isOpen = !this.accordionsNoCode[index].isOpen;
     },
     toggleAccordionWithCode(index) {
-      this.accordionsWithCode[index].isOpen =
-        !this.accordionsWithCode[index].isOpen;
+      this.accordionsWithCode[index].isOpen = !this.accordionsWithCode[index].isOpen;
     },
     toggleCursor() {
       console.log("toggling cursor");
