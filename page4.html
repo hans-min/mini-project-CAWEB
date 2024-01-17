@@ -8,6 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="js/scriptPage4.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
+    <script>
+      Nutshell.setOptions({
+          dontEmbedHeadings: true, 
+      });
+    </script>
   </head>
 
   <body>
@@ -20,11 +25,11 @@
           create a new <code>XMLHttpRequest</code> object and attach an event listener for
           its <code>loadend</code> event. <br />
           However, callback-based code can get hard to understand when you need a series
-          of asynchronous functions. You would need a callback that accept a callback that
+          of asynchronous functions. You would need a callback that accept another callback that
           accepts another callback, and so on (search Google for
           <kbd>pyramid of doom</kbd>). <br />
           Thankfully, with <code>Promises</code> and <code>Async/Await</code> introduced
-          to modern browsers, we now have <code>Fetch</code> API, the promise-based
+          to modern browsers, we now have <code>Fetch</code> API, a more powerful and flexible promise-based
           replacement for <code>XMLHttpRequest</code>.
         </p>
 
@@ -51,7 +56,7 @@
           <button @click="fetchCatImage">Run</button>
 
             </pre>
-        <div class="notice">
+        <div class="console">
           <h4>Console</h4>
           <p>{{console}}</p>
         </div>
@@ -75,13 +80,15 @@
             the <code>src</code> attribute of the <code>img</code> element above.
           </li>
         </ol>
-        Wait, for the <code>fetch()</code> function to return a <code>Promise</code>, it
-        must be an asynchronous function, right? So why don't we need to use
-        <code>async/await</code> here? <br />
-        Well, the <code>fetch()</code> function is a special case. It is a built-in
-        function that returns a <code>Promise</code> by default. <br />
-
         <h2>The Fetch API</h2>
+        <p>
+          The Fetch API is an API itself provided by the browser and not through a third-party URL. <br />
+          <ul>
+            <li>https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API</li>
+            <li>https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises#chaining_promises</li>
+            <li>https://javascript.info/fetch</li>
+            <li>https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/</li>
+          </ul>
       </section>
       <section>
         <div>
