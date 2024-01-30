@@ -8,6 +8,7 @@
     <head-css></head-css>
     <script src="js/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="js/scriptPage3.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/ncase/nutshell/nutshell.js"></script>
     <script>
       Nutshell.setOptions({
@@ -93,16 +94,15 @@
         <p>
           There are a few ways to access the functionality provided by third party
           <code>APIs</code>, and for this article we'll focus on making an
-          <code>HTTP</code> request to a specific <code>URL</code> to retrieve API
-          data.
+          <code>HTTP</code> request to a specific <code>URL</code> to retrieve API data.
         </p>
       </section>
       <section>
         <h2>HTTP</h2>
         <h4>:x What is protocol?</h4>
         <p>
-          The protocol describes exactly how to ask the server for data, or to
-          tell the server that there is data coming.
+          Definition: A <kbd>protocol</kbd> describes exactly how to ask the server for
+          data, or to tell the server that there is data coming.
         </p>
         <h4></h4>
         <p>
@@ -125,20 +125,22 @@
         <p>Requests consist of the following elements:</p>
         <ul>
           <li>
-            An HTTP method that defines the operation the client wants to perform.
+            A <em>HTTP method</em> that defines the operation the client wants to perform.
             Typically, a client wants to fetch a resource (using <code>GET</code>) or post
             the value of an HTML form (using <code>POST</code>). Full list of HTTP methods
             can be found
             <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">here</a>.
           </li>
-          <li>The path of the resource to fetch (<code>/v1/images/search</code>).</li>
-          <li>The version of the HTTP protocol. (<code>HTTP/1.1</code>)</li>
           <li>
-            Optional headers that convey additional information for the servers (
+            The <em>path</em> of the resource to fetch (<code>/v1/images/search</code>).
+          </li>
+          <li>The <em>version</em> of the HTTP protocol. (<code>HTTP/1.1</code>)</li>
+          <li>
+            Optional <em>headers</em> that convey additional information for the servers (
             <code>Host</code> and <code>Authorization</code>).
           </li>
           <li>
-            A body, for some methods like <code>POST</code>, similar to those in
+            A <em>body</em>, for some methods like <code>POST</code>, similar to those in
             responses, which contain the resource sent. This is optional, as
             <code>GET</code> requests usually don't need a body.
           </li>
@@ -155,24 +157,33 @@
         </code></pre>
         <p>Responses consist of the following elements:</p>
         <ul>
-          <li>The version of the HTTP protocol they follow(<code>HTTP/1.1</code>).</li>
           <li>
-            A status code and message, indicating if the request was successful or not,
-            and why (<code>200 OK</code>). A common example is the infamous
+            The <em>version</em> of the HTTP protocol they follow(<code>HTTP/1.1</code>).
+          </li>
+          <li>
+            A <em>status code and message</em>, indicating if the request was successful
+            or not, and why (<code>200 OK</code>). A common example is the infamous
             <code>404 Not Found</code> status code. For a full list of status codes and
             their meaning, click
             <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>.
           </li>
           <li>
-            HTTP headers, like those for requests (e.g: <code>Content-Length</code> and
-            <code>content-type</code>).
+            <em>HTTP headers</em>, like those for requests (e.g:
+            <code>Content-Length</code> and <code>content-type</code>).
           </li>
           <li>
-            A body containing the fetched resource.
+            A <em>body</em> containing the fetched resource.
             (<code>[{"id":"bvg"..."height":768}]</code>)
           </li>
         </ul>
 
+        <h4>Notable Status Code</h4>
+        <button @click="randomize">Get a random status code</button>
+        <p v-show="counter >= 20">
+          Wow, seems like you really like cats theme tutorial. Me too ! You have been
+          pressing the buttons {{counter}} times now !!
+        </p>
+        <img :src="imgsrc" alt="status image goes here" />
         In the next page, you will see this all in action with the
         <code>fetch()</code> API.
       </section>

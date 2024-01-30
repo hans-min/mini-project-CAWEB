@@ -15,9 +15,8 @@
 ───────────────────────────────────────────────────────────────────────────────────────────── */
 :root,
 ::backdrop {
-  /* Set sans-serif & mono fonts */
-  --sans-font: Avenir, Roboto, "Segoe UI", Arial, Helvetica, sans-serif;
-  --mono-font: Consolas, Menlo, Monaco, monospace;
+  --sans-font: Avenir, Roboto, "Segoe UI", Arial, Helvetica, sans-serif; /* Used for everything other than code */
+  --mono-font: Consolas, Menlo, Monaco, monospace; /* Used for code */
   --standard-border-radius: 5px;
   --bg: #212121;
   --accent-bg: #2b2b2b;
@@ -333,6 +332,10 @@ img {
   display: block;
   height: auto;
   border-radius: var(--standard-border-radius);
+}
+
+#smallimg {
+  max-width: 60%;
 }
 
 @media only screen and (min-width: 1050px) {
