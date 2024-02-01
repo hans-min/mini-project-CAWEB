@@ -9,6 +9,7 @@
     <script src="js/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="js/scriptPage2.js" defer></script>
+    <link rel="stylesheet" href="css/snackbar.css"/>
   </head>
 
   <body>
@@ -155,7 +156,7 @@
         </pre>
         </div>
       </section>
-
+      <div id="snackbar" :class="{show: showSnackbar}"> {{message}} </div>
       <section>
         <p class="navp">
           Continue to
@@ -167,6 +168,7 @@
         </p>
       </section>
     </div>
+    
     <main-footer></main-footer>
   </body>
 </html>

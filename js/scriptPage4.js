@@ -23,7 +23,7 @@ new Vue({
       fetch("https://api.thecatapi.com/v1/images/search")
         .then((response) => response.json())
         .then((json) => {
-          var formattedData = JSON.stringify(json, null, 2);
+          var formattedData = JSON.stringify(json[0], null, 2);
           this.console = formattedData;
           this.imgsrc = json[0].url;
         })
@@ -33,6 +33,10 @@ new Vue({
         });
     },
     postComment() {
+      if (this.comment.length === 0) {
+        this.console2 = "Comment cannot be empty.";
+        return;
+      }
       this.comments.push({
         username: this.currentUser.username,
         profilePic: this.currentUser.profilePic,
