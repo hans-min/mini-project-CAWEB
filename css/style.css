@@ -15,7 +15,7 @@
 ───────────────────────────────────────────────────────────────────────────────────────────── */
 :root,
 ::backdrop {
-  --sans-font: Avenir, Roboto, "Segoe UI", Arial, Helvetica, sans-serif; /* Used for everything other than code */
+  --sans-font: Avenir, Roboto, Arial, Helvetica, sans-serif; /* Used for everything other than code */
   --mono-font: Consolas, Menlo, Monaco, monospace; /* Used for code */
   --standard-border-radius: 5px;
   --bg: #212121;
@@ -55,7 +55,7 @@ body {
 }
 
 /*everything is in the middle column*/
-body>* {
+body > * {
   grid-column: 2;
 }
 
@@ -98,7 +98,6 @@ main-header {
 /* Use mono font for code elements */
 code,
 pre,
-pre span,
 kbd {
   font-family: var(--mono-font);
   color: var(--code);
@@ -173,7 +172,7 @@ textarea {
   background-color: var(--black);
   border-radius: var(--standard-border-radius);
   border: 1px solid var(--border);
-  width: 100%;  
+  width: 100%;
   max-width: 100%;
   min-height: 100px;
 }
@@ -193,7 +192,7 @@ textarea {
 ─██████──────────██████─██████──██████─────██████─────
 ────────────────────────────────────────────────────── */
 
-header>*:only-child {
+header > *:only-child {
   margin-block-start: 2rem;
 }
 
@@ -207,15 +206,15 @@ header p {
   margin: 1rem auto;
 }
 
-header>nav {
+header > nav {
   font-size: 1rem;
   line-height: 2;
   padding: 1rem 0 0 0;
 }
 
 /* Use flexbox to allow items to wrap, as needed */
-header>nav ul,
-header>nav ol {
+header > nav ul,
+header > nav ol {
   align-content: space-around;
   align-items: center;
   display: flex;
@@ -228,13 +227,13 @@ header>nav ol {
 }
 
 /* List items are inline elements, make them behave more like blocks */
-header>nav ul li,
-header>nav ol li {
+header > nav ul li,
+header > nav ol li {
   display: inline-block;
 }
 
-header>nav a,
-header>nav a:visited {
+header > nav a,
+header > nav a:visited {
   margin: 0 0.5rem 1rem 0.5rem;
   border: 1px solid var(--border);
   border-radius: var(--standard-border-radius);
@@ -244,9 +243,9 @@ header>nav a:visited {
   text-decoration: none;
 }
 
-header>nav a:hover,
-header>nav a.current,
-header>nav a[aria-current="page"] {
+header > nav a:hover,
+header > nav a.current,
+header > nav a[aria-current="page"] {
   border-color: var(--accent);
   color: var(--accent);
   cursor: pointer;
@@ -254,7 +253,7 @@ header>nav a[aria-current="page"] {
 
 /* Reduce nav side on mobile */
 @media only screen and (max-width: 720px) {
-  header>nav a {
+  header > nav a {
     border: none;
     padding: 0;
     text-decoration: underline;
@@ -279,7 +278,7 @@ section {
 }
 
 /* Don't double separators when chaining sections */
-section+section,
+section + section,
 section:first-child {
   border-top: 0;
   padding-top: 0;
@@ -326,15 +325,15 @@ summary {
   word-break: break-all;
 }
 
-details[open]>summary+* {
+details[open] > summary + * {
   margin-top: 0;
 }
 
-details[open]>summary {
+details[open] > summary {
   margin-bottom: 0.5rem;
 }
 
-details[open]> :last-child {
+details[open] > :last-child {
   margin-bottom: 0;
 }
 
@@ -374,7 +373,6 @@ img {
   }
 }
 
-
 kbd {
   color: var(--preformatted);
   border: 1px solid var(--preformatted);
@@ -388,6 +386,7 @@ pre {
   max-width: 100%;
   overflow: auto;
   color: var(--preformatted);
+  white-space: pre-wrap;
 }
 
 /* Fix embedded code within pre */

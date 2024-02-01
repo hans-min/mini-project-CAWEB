@@ -65,22 +65,22 @@ new Vue({
   },
   methods: {
     toggleAccordion(index, withCode) {
-        // Close all accordions
-        this.accordionsNoCode.forEach(accordion => {
-          accordion.isOpen = false;
-        });
-    
-        this.accordionsWithCode.forEach(accordion => {
-          accordion.isOpen = false;
-        });
-    
-        // Open the clicked accordion
-        if (withCode) {
-          this.accordionsWithCode[index].isOpen = !this.accordionsWithCode[index].isOpen;
-        } else {
-          this.accordionsNoCode[index].isOpen = !this.accordionsNoCode[index].isOpen;
-        }
-      },
+      // Close all accordions
+      this.accordionsNoCode.forEach((accordion) => {
+        accordion.isOpen = false;
+      });
+
+      this.accordionsWithCode.forEach((accordion) => {
+        accordion.isOpen = false;
+      });
+
+      // Open the clicked accordion
+      if (withCode) {
+        this.accordionsWithCode[index].isOpen = !this.accordionsWithCode[index].isOpen;
+      } else {
+        this.accordionsNoCode[index].isOpen = !this.accordionsNoCode[index].isOpen;
+      }
+    },
     toggleCursor() {
       console.log("toggling cursor");
       this.shouldApplyCursor = !this.shouldApplyCursor;
