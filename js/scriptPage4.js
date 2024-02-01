@@ -3,17 +3,25 @@ new Vue({
   data: {
     console: "",
     imgsrc: "",
+    comment: "",
+    console2: "",
+    currentUser: {
+      username: "niconeko",
+      profilePic: "https://i.kym-cdn.com/entries/icons/original/000/032/100/cover4.jpg",
+    },
+    comments: [
+      {
+        username: "Meowy",
+        profilePic: "https://placekitten.com/200/200",
+        content: "Lol.",
+        time: "30 minutes ago",
+      },
+    ],
   },
   methods: {
     fetchCatImage() {
       fetch("https://api.thecatapi.com/v1/images/search")
-        .then((response) => {
-          if (!response.ok) {
-            console.error(response);
-            throw Error(`HTTP code: ${response.status}`);
-          }
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((json) => {
           var formattedData = JSON.stringify(json, null, 2);
           this.console = formattedData;
@@ -24,16 +32,41 @@ new Vue({
           this.console = error;
         });
     },
-    executeCode() {
-      // Get the code from the <code> element
-      const code = document.getElementById("code-e").innerText;
-      try {
-        // Execute the JavaScript code
-        console.log("Executing code: ", code);
-        eval(code);
-      } catch (e) {
-        console.error("Error executing code: ", e);
-      }
+    postComment() {
+      this.comments.push({
+        username: this.currentUser.username,
+        profilePic: this.currentUser.profilePic,
+        content: this.comment,
+        time: "Just now",
+      });
+      body = {
+        name: this.currentUser.username,
+        data: this.comment,
+      };
+      this.comment = "";
+      request = new Request("https://api.restful-api.dev/objects", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+      });
+      fetch(request)
+        .then((response) => {
+          if (!response.ok) {
+            console.error(response);
+            throw Error(`HTTP code: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((json) => {
+          var formattedData = JSON.stringify(json, null, 2);
+          this.console2 = formattedData;
+        })
+        //handle error
+        .catch((error) => {
+          this.console2 = error;
+        });
     },
   },
 });
