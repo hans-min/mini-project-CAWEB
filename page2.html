@@ -155,8 +155,8 @@
             <button @click="copyCode">Copy</button>
         </pre>
         </div>
+        <div id="snackbar" :class="{show: showSnackbar}"> {{message}} </div>
       </section>
-      <div id="snackbar" :class="{show: showSnackbar}"> {{message}} </div>
       <section>
         <p class="navp">
           Continue to

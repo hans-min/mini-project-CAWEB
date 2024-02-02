@@ -3,7 +3,7 @@ new Vue({
   data: {
     showCatImage: false,
     shouldApplyCursor: false,
-    accordionsNoCode: [
+    accordions: [
       {
         title: "Synchronous vs. Asynchronous Code",
         content: `In synchronous programming, code is run one after another, 
@@ -20,12 +20,10 @@ new Vue({
           of the simplest is the <code>setTimeout</code> function.`,
         isOpen: false,
       },
-    ],
-    accordionsWithCode: [
       {
         title: "Example: Using <code>setTimeout</code>",
         content: `<p>
-                Click F12 on your keyboard.
+                Click <kbd>F12</kbd> on your keyboard.
                 Go to the console tab.
                 Type in the following code and press enter.
             </p>
@@ -39,8 +37,9 @@ new Vue({
                 </code>
             </pre>
             <p>
-                In this example, <code>setTimeout</code> is used to delay a function's
-                execution. The console will first log 'Start' and 'End', and after 2
+                In this example, <code>setTimeout</code> is used to delay a 
+                function's execution. The console will first log 
+                <code>Start</code> and <code>End</code>, and after 2
                 seconds, it will log the asynchronous message, demonstrating the
                 non-blocking nature of asynchronous code.
             </p>`,
@@ -48,13 +47,13 @@ new Vue({
       },
       {
         title: "Example: Without <code>setTimeout</code>",
-        content: `<p style="margin-top: 100px;">
-        If you repeat the same thing but remove the setTimeout you will have the message <strong>'This is an asynchronous message'</strong> logged second.
-
+        content: `<p>
+        If you repeat the same thing but remove the setTimeout you will have the message 
+        <strong>'This is an asynchronous message'</strong> logged second.
         <pre>
             <code>
         console.log('Start');
-            console.log('This is an asynchronous message');
+        console.log('This is an asynchronous message');
         console.log('End');
             </code>
         </pre>
@@ -64,39 +63,6 @@ new Vue({
     ],
   },
   methods: {
-    toggleAccordion(index, withCode) {
-      // Close all accordions
-      this.accordionsNoCode.forEach((accordion) => {
-        accordion.isOpen = false;
-      });
-
-      this.accordionsWithCode.forEach((accordion) => {
-        accordion.isOpen = false;
-      });
-
-      // Open the clicked accordion
-      if (withCode) {
-        this.accordionsWithCode[index].isOpen = !this.accordionsWithCode[index].isOpen;
-      } else {
-        this.accordionsNoCode[index].isOpen = !this.accordionsNoCode[index].isOpen;
-      }
-    },
-    toggleCursor() {
-      console.log("toggling cursor");
-      this.shouldApplyCursor = !this.shouldApplyCursor;
-    },
-    copyCode() {
-      console.log("copying code");
-      const code = this.$refs.codeBlockText.innerText;
-      navigator.clipboard
-        .writeText(code)
-        .then(() => {
-          console.log("Text copied to clipboard");
-        })
-        .catch((err) => {
-          console.error("Failed to copy text: ", err);
-        });
-    },
     fetchCatImageSync() {
       const seconds = new Date().getTime() / 1000;
       while (true) {
@@ -106,6 +72,19 @@ new Vue({
         }
       }
       this.showCatImage = !this.showCatImage;
+    },
+    toggleAccordion(index) {
+      // Close all accordions
+      this.accordions.forEach((accordion) => {
+        accordion.isOpen = false;
+      });
+
+      // Open the clicked accordion
+      this.accordions[index].isOpen = !this.accordions[index].isOpen;
+    },
+    toggleCursor() {
+      console.log("toggling cursor");
+      this.shouldApplyCursor = !this.shouldApplyCursor;
     },
   },
 });

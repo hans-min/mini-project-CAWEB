@@ -40,50 +40,28 @@
         </p>
 
         <div
-          v-for="(accordion, index) in accordionsNoCode"
+          v-for="(accordion, index) in accordions"
           :key="index"
           @mouseover="toggleCursor"
           @mouseleave="toggleCursor"
-          @click="toggleAccordion(index, false)"
-          :class="{'custom-cursor': shouldApplyCursor}"
-          style="
-            border: 1px solid var(--marked);
-            margin-top: 40px;
-            border-radius: var(--standard-border-radius);
-            padding: 0 20px;
-          ">
-          <h3 @click="toggleAccordion(index, false)">
-            {{ accordion.title }}
-            <span class="arrow" v-if="!accordion.isOpen">▼</span>
-            <span class="arrow" v-if="accordion.isOpen">▲</span>
+          @click="toggleAccordion(index)"
+          :class="{
+            post: true,
+            'custom-cursor': shouldApplyCursor
+          }"
+          >
+          <h3 @click="toggleAccordion(index)"
+          @mouseover="toggleCursor"
+          @mouseleave="toggleCursor">
+            <span v-if="accordion.isOpen">▾</span>
+            <span v-else>▸</span>
+            <span v-html="accordion.title"></span>
           </h3>
           <p v-if="accordion.isOpen" v-html="accordion.content">
             {{ accordion.content }}
           </p>
         </div>
 
-        <div
-          v-for="(accordion, index) in accordionsWithCode"
-          :key="index"
-          @mouseover="toggleCursor"
-          @mouseleave="toggleCursor"
-          @click="toggleAccordion(index, true)"
-          :class="{'custom-cursor': shouldApplyCursor}"
-          style="
-            border: 1px solid var(--marked);
-            margin-top: 40px;
-            border-radius: var(--standard-border-radius);
-            padding: 10px;
-          ">
-          <h3 @click="toggleAccordion(index, true)">
-            <span v-html="accordion.title"></span>
-            <span class="arrow" v-if="!accordion.isOpen">▼</span>
-            <span class="arrow" v-if="accordion.isOpen">▲</span>
-          </h3>
-          <p v-if="accordion.isOpen" v-html="accordion.content">
-            {{ accordion.content }}
-          </p>
-        </div>
       </section>
       <section>
         <p class="navp">

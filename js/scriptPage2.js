@@ -14,14 +14,13 @@ new Vue({
           this.showSnackbar = true;
         })
         .catch((err) => {
-          console.error("Failed to copy text: ", err);
           this.message = "Failed to copy text: " + err;
           this.showSnackbar = true;
         });
-      // After 3 seconds, remove the show class from DIV
-      setTimeout(function () {
+      setTimeout(() => {
         this.showSnackbar = false;
-      }, 3000);
+        console.log("Timeout");
+      }, 2900);
     },
   },
 });
