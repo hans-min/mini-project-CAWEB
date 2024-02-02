@@ -48,11 +48,11 @@
           :class="{
             post: true,
             'custom-cursor': shouldApplyCursor
-          }"
-          >
-          <h3 @click="toggleAccordion(index)"
-          @mouseover="toggleCursor"
-          @mouseleave="toggleCursor">
+          }"></div>
+          <h3
+            @click="toggleAccordion(index)"
+            @mouseover="toggleCursor"
+            @mouseleave="toggleCursor">
             <span v-if="accordion.isOpen">▾</span>
             <span v-else>▸</span>
             <span v-html="accordion.title"></span>
@@ -61,7 +61,6 @@
             {{ accordion.content }}
           </p>
         </div>
-
       </section>
       <section>
         <p class="navp">
