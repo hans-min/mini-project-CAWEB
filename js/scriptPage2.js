@@ -5,8 +5,8 @@ new Vue({
     showSnackbar: false,
   },
   methods: {
-    copyCode() {
-      const code = this.$refs.codeBlockText.innerText;
+    copyCode(refName) {
+        const code = this.$refs[refName].innerText;
       navigator.clipboard
         .writeText(code)
         .then(() => {

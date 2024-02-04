@@ -118,9 +118,9 @@
         </p>
         <h4>Request</h4>
         <pre><code class="language-javascript">
-          GET /v1/images/search HTTP/1.1
-          Host: api.thecatapi.com
-          Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+GET /v1/images/search HTTP/1.1
+Host: api.thecatapi.com
+Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
         </code></pre>
         <p>Requests consist of the following elements:</p>
         <ul>
@@ -148,12 +148,13 @@
 
         <h4>Response</h4>
         <pre><code class="language-javascript">
-          HTTP/1.1 200 OK
-          content-type: application/json; charset=utf-8
-          Content-Length: 90
+HTTP/1.1 200 OK
+content-type: application/json; 
+charset=utf-8
+Content-Length: 90
 
-          [{"id":"bvg","url":"https://cdn2.thecatapi.com/images/bvg.jpg",
-          "width":1024,"height":768}]
+[{"id":"bvg","url":"https://cdn2.thecatapi.com/images/bvg.jpg",
+"width":1024,"height":768}]
         </code></pre>
         <p>Responses consist of the following elements:</p>
         <ul>

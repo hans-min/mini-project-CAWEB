@@ -28,8 +28,8 @@
           its <code>loadend</code> event. <br />
           However, callback-based code can get hard to understand when you need a series
           of asynchronous functions. You would need a callback that accept another
-          callback that accepts another callback, and so on (search Google for
-          <kbd>pyramid of doom</kbd>). <br />
+          callback that accepts another callback, <br>and so on (search Google for
+          <kbd>pyramid of doom</kbd>).</br> <br />
           Thankfully, with <code>Promises</code> and <code>Async/Await</code> introduced
           to modern browsers, we now have <code>Fetch</code> API, a more powerful and
           flexible promise-based replacement for <code>XMLHttpRequest</code>.
@@ -48,14 +48,16 @@
         <pre>
           <code class="language-javascript">
 
-          fetch('https://api.thecatapi.com/v1/images/search')
-          // fetch return a Promise, so we use .then() to resolve it
-            .then((response) => response.json())
-          // response.json() also return a Promise, so we use .then() again
-            .then((json)     => {
-              console.log(json);
-              this.imgsrc = json[0].url;  //assign src to the img element
-            })   
+fetch('https://api.thecatapi.com/v1/images/search')
+// fetch return a Promise, 
+// so we use .then() to resolve it
+.then((response) => response.json())
+// response.json() also return a Promise,
+// so we use .then() again
+.then((json)     => {
+    console.log(json);
+    this.imgsrc = json[0].url;  //assign src to the img element
+})   
           </code>
           <button @click="fetchCatImage">Run</button>
 
@@ -158,35 +160,37 @@
         </p>
         <pre>
         <code class="language-javascript">
-      // the data we want to send to the server
-      body = {
-        name: "niconeko",
-        data: "Your comment goes here",
-      };
-      // the Request object containing the POST method, json body, header and URL
-      request = new Request("https://api.your-url.com", {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: new Headers({  // Header object
-          "Content-Type": "application/json",
-        }),
-      });
-      // send the request to the server
-      fetch(request)
-        .then((response) => {
-          // handle the Response object, throw error if not OK
-          if (!response.ok) {
-            console.error(response);
-            throw Error(`HTTP code: ${response.status}`);
-          }
-          return response.json();
-        })
-        // log the response from the server
-        .then((json) => { 
-          //add comment to the list of comments...
-        })
-        //handle error
-        .catch((error) => { console.log(error) });
+// the data we want to send to the server
+body = {
+name: "niconeko",
+data: "Your comment goes here",
+};
+// the Request object containing the POST method,
+// json body, header and URL
+request = new Request("https://api.your-url.com", {
+method: "POST",
+body: JSON.stringify(body),
+headers: new Headers({  // Header object
+"Content-Type": "application/json",
+}),
+});
+// send the request to the server
+fetch(request)
+.then((response) => {
+// handle the Response object,
+// throw error if not OK
+if (!response.ok) {
+console.error(response);
+throw Error(`HTTP code: ${response.status}`);
+}
+return response.json();
+})
+// log the response from the server
+.then((json) => { 
+//add comment to the list of comments...
+})
+//handle error
+.catch((error) => { console.log(error) });
         </code>
       </pre>
         <p>
