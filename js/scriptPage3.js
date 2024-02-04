@@ -79,11 +79,11 @@ new Vue({
   methods: {
     randomize() {
       do {
-        randomIndex = Math.floor(Math.random() * this.statuscodes.length);
+        var randomIndex = Math.floor(Math.random() * this.statuscodes.length);
       } while (randomIndex == this.randomIndex);
       this.randomIndex = randomIndex;
       this.counter++;
-      statuscode = this.statuscodes[this.randomIndex];
+      let statuscode = this.statuscodes[this.randomIndex];
       console.log(this.randomIndex);
       this.imgsrc = `https://http.cat/${statuscode}.jpg`;
     },

@@ -24,7 +24,7 @@ new Vue({
         .then((response) => response.json())
         .then((json) => {
           // Display the image and the JSON in the console
-          var formattedData = JSON.stringify(json[0], null, 2);
+          let formattedData = JSON.stringify(json[0], null, 2);
           this.console = formattedData;
           this.imgsrc = json[0].url;
         })
@@ -67,7 +67,7 @@ new Vue({
           return response.json();
         })
         .then((json) => {
-          var formattedData = JSON.stringify(json, null, 2);
+          let formattedData = JSON.stringify(json, null, 2);
           this.console2 = formattedData;
         })
         .catch((error) => {
