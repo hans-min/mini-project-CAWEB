@@ -23,11 +23,11 @@ new Vue({
       fetch("https://api.thecatapi.com/v1/images/search")
         .then((response) => response.json())
         .then((json) => {
+          // Display the image and the JSON in the console
           var formattedData = JSON.stringify(json[0], null, 2);
           this.console = formattedData;
           this.imgsrc = json[0].url;
         })
-        //handle error
         .catch((error) => {
           this.console = error;
         });
@@ -37,6 +37,7 @@ new Vue({
         this.console2 = "Comment cannot be empty.";
         return;
       }
+      // Add comment to the list
       this.comments.push({
         username: this.currentUser.username,
         profilePic: this.currentUser.profilePic,
@@ -47,7 +48,9 @@ new Vue({
         name: this.currentUser.username,
         data: this.comment,
       };
+      // Clear the comment box
       this.comment = "";
+      // Post the comment to the server just to get a response to display in the console
       request = new Request("https://api.restful-api.dev/objects", {
         method: "POST",
         body: JSON.stringify(body),
@@ -67,7 +70,6 @@ new Vue({
           var formattedData = JSON.stringify(json, null, 2);
           this.console2 = formattedData;
         })
-        //handle error
         .catch((error) => {
           this.console2 = error;
         });

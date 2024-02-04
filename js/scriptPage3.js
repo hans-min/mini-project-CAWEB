@@ -78,10 +78,9 @@ new Vue({
   },
   methods: {
     randomize() {
-      randomIndex = Math.floor(Math.random() * this.statuscodes.length);
-      while (randomIndex == this.randomIndex) {
+      do {
         randomIndex = Math.floor(Math.random() * this.statuscodes.length);
-      }
+      } while (randomIndex == this.randomIndex);
       this.randomIndex = randomIndex;
       this.counter++;
       statuscode = this.statuscodes[this.randomIndex];
