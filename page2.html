@@ -41,17 +41,14 @@
 
           <pre>
             <code ref="codeBlockText1" class="language-javascript">
-const myPromise = 
-new Promise((resolve, reject) => {
-// Asynchronous operation 
-code here
-if (/* operation successful */) {
-    resolve('Success');
-} else {
-    reject('Error');
-}
+const myPromise = new Promise((resolve, reject) => {
+  // Asynchronous operation code here
+  if (/* operation successful */) {
+      resolve('Success');
+  } else {
+      reject('Error');
+  }
 });
-
             </code>
             <button @click="copyCode('codeBlockText1')">Copy</button>
           </pre>
@@ -70,8 +67,7 @@ if (/* operation successful */) {
           <pre>
             <code ref="codeBlockText2" class="language-javascript">
 myPromise.then(value => {
-    // Code to handle 
-    the fulfilled value
+  // handle the response
 });
             </code>
             <button @click="copyCode('codeBlockText2')">Copy</button>
@@ -80,8 +76,7 @@ myPromise.then(value => {
           <pre>
             <code ref="codeBlockText3" class="language-javascript">
 myPromise.catch(error => {
-    // Code to handle 
-    the rejection
+  // handle the error
 });
             </code>
             <button @click="copyCode('codeBlockText3')">Copy</button>
@@ -90,8 +85,7 @@ myPromise.catch(error => {
           <pre>
             <code ref="codeBlockText4" class="language-javascript">
 myPromise.finally(() => {
-    // Code to execute no 
-    matter the Promise's outcome
+  // will execute no matter the Promise's outcome
 });
             </code>
             <button @click="copyCode('codeBlockText4')">Copy</button>
@@ -119,7 +113,7 @@ myPromise.finally(() => {
           <pre>
             <code ref="codeBlockText5" class="language-javascript">
 async function fetchData() {
-    return 'Data fetched';
+  return 'Data fetched';
 }
             </code>
             <button @click="copyCode('codeBlockText5')">Copy</button>
@@ -134,8 +128,8 @@ async function fetchData() {
           <pre>
             <code ref="codeBlockText6" class="language-javascript">
 async function fetchData() {
-const data = await someAsyncOperation();
-console.log(data);
+  const data = await someAsyncOperation();
+  console.log(data);
 }
             </code>
             <button @click="copyCode('codeBlockText6')">Copy</button>
@@ -149,13 +143,12 @@ console.log(data);
           <pre>
             <code ref="codeBlockText7" class="language-javascript">
 async function fetchData() {
-try {
-const data = await someAsyncOperation();
-console.log(data);
-} catch (error) {
-console.error('Error fetching 
-data:', error);
-}
+  try {
+    const data = await someAsyncOperation();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 }
             </code>
             <button @click="copyCode('codeBlockText7')">Copy</button>

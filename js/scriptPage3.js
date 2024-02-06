@@ -84,7 +84,6 @@ new Vue({
       this.randomIndex = randomIndex;
       this.counter++;
       let statuscode = this.statuscodes[this.randomIndex];
-      console.log(this.randomIndex);
       this.imgsrc = `https://http.cat/${statuscode}.jpg`;
     },
   },

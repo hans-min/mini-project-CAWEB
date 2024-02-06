@@ -328,11 +328,6 @@ details[open] > :last-child {
   margin-bottom: 0;
 }
 
-/* Set the cursor to '?' on an abbreviation */
-abbr[title] {
-  cursor: help;
-}
-
 .post {
   border: 1px solid var(--border);
   padding: 1rem;

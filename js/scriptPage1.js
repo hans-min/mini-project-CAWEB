@@ -29,11 +29,11 @@ new Vue({
             </p>
             <pre>
                 <code class="language-javascript">
-    console.log('Start');
-    setTimeout(() => {
-        console.log('This is an asynchronous message');
-    }, 2000);
-    console.log('End');
+console.log('Start');
+setTimeout(() => {
+    console.log('This is an asynchronous message');
+}, 2000);
+console.log('End');
                 </code>
             </pre>
             <p>
@@ -52,9 +52,9 @@ new Vue({
         <strong>'This is an asynchronous message'</strong> logged second.
         <pre>
             <code>
-        console.log('Start');
-        console.log('This is an asynchronous message');
-        console.log('End');
+console.log('Start');
+console.log('This is an asynchronous message');
+console.log('End');
             </code>
         </pre>
       </p>`,
@@ -65,9 +65,10 @@ new Vue({
   methods: {
     fetchCatImageSync() {
       const seconds = new Date().getTime() / 1000;
+      console.log("Lag for 3 seconds");
       while (true) {
         if (new Date().getTime() / 1000 - seconds >= 3) {
-          console.log("Lag for 3 seconds");
+          console.log("Finished lagging");
           break;
         }
       }
@@ -83,7 +84,6 @@ new Vue({
       this.accordions[index].isOpen = !this.accordions[index].isOpen;
     },
     toggleCursor() {
-      console.log("toggling cursor");
       this.shouldApplyCursor = !this.shouldApplyCursor;
     },
   },
