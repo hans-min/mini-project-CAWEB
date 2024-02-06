@@ -27,7 +27,7 @@ new Vue({
                 Go to the console tab.
                 Type in the following code and press enter.
             </p>
-            <pre>
+            <pre class="language-javascript">
                 <code class="language-javascript">
 console.log('Start');
 setTimeout(() => {
@@ -50,8 +50,8 @@ console.log('End');
         content: `<p>
         If you repeat the same thing but remove the setTimeout you will have the message 
         <strong>'This is an asynchronous message'</strong> logged second.
-        <pre>
-            <code>
+        <pre class="language-javascript">
+            <code class="language-javascript">
 console.log('Start');
 console.log('This is an asynchronous message');
 console.log('End');

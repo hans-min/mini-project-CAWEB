@@ -8,7 +8,7 @@ pre[class*="language-"] {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
   text-align: left;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -22,14 +22,14 @@ pre[class*="language-"] {
   hyphens: none;
 }
 pre[class*="language-"] {
-  padding: 1em;
+  padding: 0 1em;
   margin: 0.5em 0;
   overflow: auto;
   border-radius: 0.3em;
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #272822;
+  background: #2d2e28;
 }
 :not(pre) > code[class*="language-"] {
   padding: 0.1em;

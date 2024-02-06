@@ -95,9 +95,7 @@ main-header {
 ─────██████─────██████████████─████████──████████─────██████─────
 ─────────────────────────────────────────────────────────────────*/
 /* Use mono font for code elements */
-code,
-pre,
-kbd {
+code {
   font-family: var(--mono-font);
   color: var(--code);
 }
@@ -294,9 +292,7 @@ section:last-child {
 ─██░░░░░░░░░░██─────██░░██─────██░░██──██░░██─██░░░░░░░░░░██─██░░██──██░░░░░░██─██░░░░░░░░░░██─
 ─██████████████─────██████─────██████──██████─██████████████─██████──██████████─██████████████─
 ───────────────────────────────────────────────────────────────────────────────────────────────*/
-/* Consolidate box styling */
-details,
-pre {
+details {
   background-color: var(--accent-bg);
   border: 1px solid var(--marked);
   border-radius: var(--standard-border-radius);
@@ -365,14 +361,6 @@ kbd {
   border-bottom: 3px solid var(--preformatted);
   border-radius: var(--standard-border-radius);
   padding: 0.1rem 0.4rem;
-}
-
-pre {
-  padding: 1rem 1.4rem;
-  max-width: 100%;
-  overflow: auto;
-  color: var(--preformatted);
-  white-space: pre-wrap;
 }
 
 /* Fix embedded code within pre */
