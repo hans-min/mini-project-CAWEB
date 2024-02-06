@@ -6,7 +6,7 @@ class Header extends HTMLElement {
       <nav>
         <ul>
           <li>
-              <a href="page1.html">Asynchronous JavaScript</a>
+              <a href="index.html">Asynchronous JavaScript</a>
           </li>
           <li>
               <a href="page2.html">Promises and Async/Await</a>
