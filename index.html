@@ -57,7 +57,7 @@
             <span v-else>▸</span>
             <span v-html="accordion.title"></span>
           </h3>
-          <p v-if="accordion.isOpen" v-html="accordion.content">
+          <p v-show="accordion.isOpen" v-html="accordion.content">
             {{ accordion.content }}
           </p>
         </div>

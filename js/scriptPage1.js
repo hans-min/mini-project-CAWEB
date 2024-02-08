@@ -34,8 +34,7 @@ setTimeout(() => {
     console.log('This is an asynchronous message');
 }, 2000);
 console.log('End');
-                </code>
-            </pre>
+                </code></pre>
             <p>
                 In this example, <code>setTimeout</code> is used to delay a 
                 function's execution. The console will first log 
@@ -55,8 +54,7 @@ console.log('End');
 console.log('Start');
 console.log('This is an asynchronous message');
 console.log('End');
-            </code>
-        </pre>
+            </code></pre>
       </p>`,
         isOpen: false,
       },

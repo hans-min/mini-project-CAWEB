@@ -28,8 +28,8 @@
           its <code>loadend</code> event. <br />
           However, callback-based code can get hard to understand when you need a series
           of asynchronous functions. You would need a callback that accept another
-          callback that accepts another callback, <br>and so on (search Google for
-          <kbd>pyramid of doom</kbd>).</br> <br />
+          callback that accepts another callback, <br />and so on (search Google for
+          <kbd>pyramid of doom</kbd>).<br />
           Thankfully, with <code>Promises</code> and <code>Async/Await</code> introduced
           to modern browsers, we now have <code>Fetch</code> API, a more powerful and
           flexible promise-based replacement for <code>XMLHttpRequest</code>.
@@ -58,8 +58,7 @@ fetch('https://api.thecatapi.com/v1/images/search')
   })   
           </code>
           <button @click="fetchCatImage">Run</button>
-
-            </pre>
+        </pre>
         <div class="console">
           <h4>Console</h4>
           <p>{{console}}</p>
@@ -188,8 +187,7 @@ fetch(request)
   })
   //handle error
   .catch((error) => { console.log(error) });
-        </code>
-      </pre>
+        </code></pre>
         <p>
           Try <strong>posting a new comment above</strong> and come down here to see the
           console log.
