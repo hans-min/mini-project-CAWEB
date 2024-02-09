@@ -1,7 +1,7 @@
-# Mini Projects 
-
-### Mini project for the course JS part 2 - Master CAWEB
-
+# Mini Projects - CAWEB 2024
+[![pages-build-deployment](https://github.com/hans-min/mini-project-CAWEB/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/hans-min/mini-project-CAWEB/actions/workflows/pages/pages-build-deployment)
+### Mini project for the course JS part 2 by Mark Nightingale - Master CAWEB
+### Contributors: Nguyen Minh Hanh, Douglas Delpha
 ### We use: 
  - Vue.js 
  - [Prism](https://prismjs.com/index.html) to syntax highlighting
