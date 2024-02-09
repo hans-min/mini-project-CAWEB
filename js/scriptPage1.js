@@ -62,6 +62,7 @@ console.log('End');
   },
   methods: {
     fetchCatImageSync() {
+      // Simulate a synchronous fetch operation
       const seconds = new Date().getTime() / 1000;
       console.log("Lag for 3 seconds");
       while (true) {

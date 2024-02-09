@@ -178,7 +178,7 @@ Content-Length: 90
 
         <h4>Notable Status Code</h4>
         <button @click="randomize">Get a random status code</button>
-        <p v-show="counter >= 10">
+        <p v-if="counter >= 5">
           Wow, seems like you really like cats theme tutorial. Me too ! You have been
           pressing the buttons {{counter}} times now !!
         </p>

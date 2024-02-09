@@ -29,7 +29,7 @@ class Footer extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <footer>
-        <p>Created by Minh and Douglas</p>
+        <p>Created by Nguyen Minh Hanh and Douglas Delpha</p>
       </footer>
       `;
   }

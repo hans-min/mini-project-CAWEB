@@ -1,10 +1,10 @@
 new Vue({
   el: "#page4",
   data: {
+    imgsrc: "", //Cat image goes here
     console: "",
-    imgsrc: "",
-    comment: "",
     console2: "",
+    comment: "",
     currentUser: {
       username: "niconeko",
       profilePic: "https://i.kym-cdn.com/entries/icons/original/000/032/100/cover4.jpg",
@@ -44,6 +44,7 @@ new Vue({
         content: this.comment,
         time: "Just now",
       });
+      // Create the body of the request
       body = {
         name: this.currentUser.username,
         data: this.comment,
@@ -58,6 +59,7 @@ new Vue({
           "Content-Type": "application/json",
         }),
       });
+      // Fetch and handle the response
       fetch(request)
         .then((response) => {
           if (!response.ok) {
