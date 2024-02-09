@@ -28,7 +28,7 @@
           But what if you want to do something that takes a longer time to finish, for
           example downloading a cat image for your application of Cute Cats Collection ?
         </p>
-        <img v-show="showCatImage" src="images/cat.webp" alt="cute cat" />
+        <img v-if="showCatImage" src="images/cat.webp" alt="cute cat" />
         <button @click="fetchCatImageSync">Fetch Cat Image Synchronously</button>
         <p>
           You'll find that while our <code>fetchCatImage()</code> function is running, our
