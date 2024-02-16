@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Promises and Async/Await in JavaScript"
-    />
+    <meta name="description" content="Promises and Async/Await in JavaScript" />
     <title>Promises and Async/Await</title>
     <script src="js/header_footer_template.js"></script>
     <head-css></head-css>
@@ -20,30 +17,29 @@
     <main-header></main-header>
     <div id="appPage2">
       <section>
-        <div id="promises-intro">
-          <h2>Understanding Promises and Async/Await</h2>
-          <p>
-            Promises are used frequently in JavaScript, offering a more reliable way to
-            handle asynchronous operations. This section explains what Promises are, the
-            different states, and how to work with them.
-          </p>
-          <h2>What are Promises?</h2>
-          <p>
-            A Promise represents the eventual completion or failure of an asynchronous
-            operation. Promises have three states:
-          </p>
-          <ul>
-            <li>
-              <strong>Pending:</strong> The initial state, neither fulfilled nor rejected.
-            </li>
-            <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
-            <li><strong>Rejected:</strong> The operation failed.</li>
-          </ul>
+        <h2>Understanding Promises and Async/Await</h2>
+        <p>
+          Promises are used frequently in JavaScript, offering a more reliable way to
+          handle asynchronous operations. This section explains what Promises are, the
+          different states, and how to work with them.
+        </p>
+        <h2>What are Promises?</h2>
+        <p>
+          A Promise represents the eventual completion or failure of an asynchronous
+          operation. Promises have three states:
+        </p>
+        <ul>
+          <li>
+            <strong>Pending:</strong> The initial state, neither fulfilled nor rejected.
+          </li>
+          <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
+          <li><strong>Rejected:</strong> The operation failed.</li>
+        </ul>
 
-          <h2>Creating and Resolving Promises</h2>
-          <p>To create a new Promise, use the Promise constructor:</p>
+        <h2>Creating and Resolving Promises</h2>
+        <p>To create a new Promise, use the Promise constructor:</p>
 
-          <pre>
+        <pre>
             <code ref="codeBlockText1" class="language-javascript">
 const myPromise = new Promise((resolve, reject) => {
   // Asynchronous operation code here
@@ -57,18 +53,18 @@ const myPromise = new Promise((resolve, reject) => {
             <button @click="copyCode('codeBlockText1')">Copy</button>
           </pre>
 
-          <p>
-            The <code>resolve</code> function is called to fulfill the Promise, and
-            <code>reject</code> is called to reject it.
-          </p>
+        <p>
+          The <code>resolve</code> function is called to fulfill the Promise, and
+          <code>reject</code> is called to reject it.
+        </p>
 
-          <h2>Working with Promises</h2>
-          <p>
-            Promises provide <code>then</code>, <code>catch</code>, and
-            <code>finally</code> methods to handle the results.
-          </p>
-          <h3>Using <code>then</code></h3>
-          <pre>
+        <h2>Working with Promises</h2>
+        <p>
+          Promises provide <code>then</code>, <code>catch</code>, and
+          <code>finally</code> methods to handle the results.
+        </p>
+        <h3>Using <code>then</code></h3>
+        <pre>
             <code ref="codeBlockText2" class="language-javascript">
 myPromise.then(value => {
   // handle the response
@@ -76,8 +72,8 @@ myPromise.then(value => {
             </code>
             <button @click="copyCode('codeBlockText2')">Copy</button>
         </pre>
-          <h3>Using <code>catch</code></h3>
-          <pre>
+        <h3>Using <code>catch</code></h3>
+        <pre>
             <code ref="codeBlockText3" class="language-javascript">
 myPromise.catch(error => {
   // handle the error
@@ -85,8 +81,8 @@ myPromise.catch(error => {
             </code>
             <button @click="copyCode('codeBlockText3')">Copy</button>
         </pre>
-          <h3>Using <code>finally</code></h3>
-          <pre>
+        <h3>Using <code>finally</code></h3>
+        <pre>
             <code ref="codeBlockText4" class="language-javascript">
 myPromise.finally(() => {
   // will execute no matter the Promise's outcome
@@ -94,12 +90,12 @@ myPromise.finally(() => {
             </code>
             <button @click="copyCode('codeBlockText4')">Copy</button>
         </pre>
-          <p>
-            The <code>then</code> method is when a Promise is fulfilled,
-            <code>catch</code> is for a rejection, and <code>finally</code> is executed no
-            matter the Promise's outcome.
-          </p>
-        </div>
+        <p>
+          The <code>then</code> method is when a Promise is fulfilled,
+          <code>catch</code> is for a rejection, and <code>finally</code> is executed no
+          matter the Promise's outcome.
+        </p>
+
         <div id="async-await-intro">
           <h1>Async/Await in JavaScript</h1>
           <p>
